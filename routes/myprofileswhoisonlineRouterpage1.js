@@ -70,26 +70,26 @@ myprofileswhoisonlineRouterpage1.route('/')  //line 18 in index.js specifies dis
         let {page, size} = req.query;
         if( !page ){
             page = 1;
-            console.log('myprofileswhoisonlineRouterpage1.js - get 23 page -> ' + page);
+            console.log('myprofileswhoisonlineRouterpage1.js - get 73 page no_user_id -> ' + page);
         }
         if( !size){
             size = 100; //defaut docs per page
-            console.log('myprofileswhoisonlineRouterpage1.js - get 27 size -> ' + size);
+            console.log('myprofileswhoisonlineRouterpage1.js - get 77 size no_user_id -> ' + size);
         }
         //size should be a string value
         const limit = parseInt( size );
         const skip = ( page -1 )*limit; //page =1 skip 0 documents
                                 //page = 2 skip 1*10 documents
-        console.log('myprofileswhoisonlineRouterpage1.js - 83 page -> ' + page );
-        console.log('myprofileswhoisonlineRouterpage1.js - 84 size -> ' + size );
-        console.log('myprofileswhoisonlineRouterpage1.js - 85 limit -> ' + limit );
-        console.log('myprofileswhoisonlineRouterpage1.js - 86 skip -> ' + skip );
+        console.log('myprofileswhoisonlineRouterpage1.js - 83 page  no_user_id -> ' + page );
+        console.log('myprofileswhoisonlineRouterpage1.js - 84 size  no_user_id -> ' + size );
+        console.log('myprofileswhoisonlineRouterpage1.js - 85 limit no_user_id -> ' + limit );
+        console.log('myprofileswhoisonlineRouterpage1.js - 86 skip  no_user_id -> ' + skip );
 
 
 
         Data_of_users.find({online:true}, {} ,{limit : limit, skip : skip })
         .then( (data_of_users) => { //dishes is in mongodb as a collection/database
-            console.log("inside myprofileswhoisonlineRouterpage1 - 92 - data_of_users => " + data_of_users);
+            console.log("inside myprofileswhoisonlineRouterpage1 - 92 - no_user_id data_of_users => " + data_of_users);
             /*
             console.log("inside myprofilesearchRouter - 35 - data_of_user[0].patient_or_caregiver => " + data_of_user[0].patient_or_caregiver );
             console.log("inside myprofilesearchRouter - 36 - data_of_user[0].illness => " + data_of_user[0].illness );
