@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>supportgroupheartdisease</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+  <script src=”http://code.jquery.com/jquery-1.9.1.js”></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	$( function() {
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	} );
+	</script>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+      a.border {
+        border-style: solid;
+        border-color: rgb(255, 0, 0);
+        background-color: yellow; 
+        border-width: 5px;
+        }
+    </style>
+    
+
+  </head>
+  <body>
+    <script>
+      // location.href='http://localhost:3000/HFheartdataposts.html'; doesn't work with heroku
+      function myredirect() {
+        //not used
+        location.href='HFheartdataposts.html';
+      }
+      function myredirect(myId) {
+        //not used
+        location.href='http://localhost:3000';
+      }
+      function myFunction_II() {
+        //  '/' is used to move routing back to home
+                location.href='/' + 'HFheartdatapostsfilterpage1';
+      }
+      function mymenu() {
+                location.href='/' + 'menu.html';
+      }
+      function myhideTextArea(myDIV){
+        var x = document.getElementById(myDIV);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+      //jquery makes button blink
+      function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,1000);
+      </script>
+    
+    
+      
+    <!--
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    -->
+    <!--
+    <button onclick="myredirect()">go to home - heart data</button>
+    <button onclick="gotoheartdataposts()">enter a new post - heart failure</button>
+    -->
+    <button onclick="mymenu()">go to menu</button>
+    <p><button class="blink_me" onclick="myFunction_II()">replys and comments(filtered) - heart failure forum</button></p>
+    <p>click on replys and comments(filtered) to see results</p>
+    
+
+    <script>
+      
+      function myFunction() {
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              txtValue = a.textContent || a.innerText;
+              
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+              } else {
+                  li[i].style.display = "none";
+              }
+              
+              
+          }
+          
+      }
+
+      function highlight(text) {
+        var inputText = document.getElementById("inputText");
+        var innerHTML = inputText.innerHTML;
+        var index = innerHTML.indexOf(text);
+        if (index >= 0) { 
+        innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+        inputText.innerHTML = innerHTML;
+        }
+      }
+      </script>
+      
+
+</body>
+</html>

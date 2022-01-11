@@ -1,0 +1,141 @@
+<head>
+  <script>
+    function mylogout(user_id) {
+            //  '/' moves routing back up one level to root
+                location.href='/' + 'logout/user_id';
+    }
+    function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,5000);
+  </script>
+  <style type="text/css">
+     ul.nav {
+      padding-left: 0px;
+      background-color: #3D99CE;
+      text-align: left;
+    }
+    ul.nav > li {
+      display: inline-block;
+      padding: 1px 0px; /* 2nd for left and right padding  */
+    }
+    ul.nav > li:hover {
+      background-color: #2779BF;
+    }
+    ul.nav > li > a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    <!--
+    /* @group Blink */
+    .blink {
+     -webkit-animation: blink .75s linear infinite;
+     -moz-animation: blink .75s linear infinite;
+     -ms-animation: blink .75s linear infinite;
+     -o-animation: blink .75s linear infinite;
+     animation: blink .75s linear infinite;
+    }
+    @-webkit-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-moz-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-ms-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-o-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    /* @end */
+    
+    </style>
+</head>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <div class="container">
+    <div class="col w-60">
+      <a  href="#">spaceCHF -Todd <br>congestive heart failure</a>
+      <div class="left">
+        <ul class="nav"><!-- class="navbar-nav mr-auto"-->
+          <li > <!-- class="nav-item"-->
+            <a class="nav-link" href="/myprofilehome/<%= the_user_id %>">Home</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Search
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/myprofilesearchpage1/<%= the_user_id %>">search</a></li>
+              <li><a class="dropdown-item" href="/myprofilesearchwhoisonlinepage1/<%= the_user_id %>">Who is online?</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/messages/<%=the_user_id %>">messages</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              myprofile
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/myprofile/<%=the_user_id%>">Your profile</a></li>
+              <li><a class="dropdown-item" href="/myprofilephoto/<%=the_user_id%>">Upload your photo</a></li>
+              <li><a class="dropdown-item" href="/myprofilecityandstate/<%=the_user_id%>">Edit City and State</a></li>
+              <li><a class="dropdown-item" href="/myprofilepatientorcaregiver/<%=the_user_id%>">Edit patient or caregiver</a></li>
+              <li><a class="dropdown-item" href="/myprofilebriefdescription/<%=the_user_id%>">Edit brief description</a></li>
+              <li><a class="dropdown-item" href="/myprofiledetaileddescription/<%=the_user_id%>">Edit detailed description</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/myprofilemenu/<%=the_user_id %>">forums</a>
+          </li>
+          <li class="nav-item">
+            <a class="tab blink button" href="/logout/<%=the_user_id %>">Logout</a>
+          </li> 
+    </ul>
+    <!--<em>Variant: <%= typeof variant != 'undefined' ? variant : 'default' %></em> -->
+  <!--</nav>-->
+</div>
+</div>
+
+  
+  <!-- <em>Variant: <%= typeof variant != 'undefined' ? variant : 'default' %></em> -->
+<!-- </nav> -->
+</div>

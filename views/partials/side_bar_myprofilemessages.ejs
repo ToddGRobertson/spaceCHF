@@ -1,0 +1,80 @@
+<head>
+  <script>
+    function read_message(user_id) {
+      console.log("side barmyprofilemessages - read_message user_id " + user_id );
+      location.href='/myprofilereadmessage/<%=the_user_id%>';
+    }
+  </script>
+</head>
+<main>
+  <div class="row">  
+    <div class="col-sm-2">
+        
+          
+    </div>
+    <div class="col-sm-10">
+         
+          <h1><%= the_username %> myprofile messages</h1>
+         
+          
+         <div class="main">
+            <div class="col-md-6 col-sm-12">
+                <div class="login-form">
+    
+                    <% for( x = 0; x < the_messages.comments.length ; x++ ){ %>
+                      <div class="form-group">
+                        <form action="../../myprofilereadmessage" method="GET"> 
+                          <div class="form-group">
+                            <label hidden >User_id:</label>
+                            <input hidden type="text" class="form-control" placeholder="user_id" name="user_id" id="user_id" value="<%= the_user_id %>">
+                          </div>
+                        <table border="1">
+                          <tr>
+                            <td>
+                              <label>Photo:</label>
+                            </td>
+                            <td>
+                              <label>Date:</label>
+                            </td>
+                            <td>
+                              <label>Subject:</label>
+                            </td>
+                            <td>
+                              <label>Message:</label>
+                            </td>
+                            <td>
+                              <label hidden >Message Id:</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <img src='../<%= the_messages.comments[x].sender_image %>' alt="Michael" width="100" height="100"> 
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" placeholder="date" name="date" id="date" value='<%= the_messages.comments[x].date %>' >
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" placeholder="subject" name="subject" id="subject" value='<%= the_messages.comments[x].subject %>' >
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" placeholder="message" name="message" id="subject" value='<%= the_messages.comments[x].message %>' >
+                            </td>
+                            <td>
+                              <input hidden type="text" class="form-control" placeholder="message_id" name="message_id" id="message_id" value='<%= the_messages.comments[x]._id %>' >
+                            </td>
+                            <td>
+                              <input type="submit" value="Read Message">
+                              
+                            </td>
+                          </tr>
+                        </table>
+                      </form>  <!-- multiple forms generatee-->
+                      </div> <!-- <div class="form-group">-->
+                   <% } %>
+                </div> <!--  div class="login-form">-->    <!-- script below highlights date-->
+      
+              </div> <!-- <div class="col-md-6 col-sm-12">-->
+        </div>  <!-- <div class="main"> -->
+       </div>  <!-- <div class="col-sm-10"> -->
+    </div>  <!-- <div class="row">-->
+</main>

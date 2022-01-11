@@ -1,0 +1,241 @@
+<head>
+  <script>
+    function mylogout(user_id) {
+            //  '/' moves routing back up one level to root
+                location.href='/' + 'logout/user_id';
+    }
+    function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,5000);
+    
+      function myFunction() {
+          location.href='http://localhost:3000/HFheartdatapostsfilter';
+      }
+      function myFunction_II() {
+          location.href='http://localhost:3000/HFheartdataposts';
+      }
+      function loademail(){
+          console.log("side_var_HFheartdataposts_html - /:get 208 " + '<%= the_username %>' ); 
+          /*
+          //Cookiess = "email=helen4%40netscape.net; username=thomas"
+          Cookies = Cookies.split(';');
+          console.log("ARRYheartdataposts.html - /:get 39 Cookies->" + Cookies); 
+          console.log("ARRYheartdataposts.html - /:get 39 Cookies.length->" + Cookies.length); 
+          for (var i = 0; i < Cookies.length; i++) {
+              Cookies[i].split(',');
+          }
+          for (var i = 0; i < Cookies.length; i++) {
+              console.log("ARRYheartdataposts.html - /:get 44 Cookies[" + i + "]->" + Cookies[i]);
+          }
+          // replace "email= with blanks
+          let email1 = Cookies[0].replace(/"email=/g, "");
+          console.log("ARRYheartdataposts.html - /:get 49 email1->" + email1 );
+          // replace %40 with @ symbol
+          let email2 = email1.replace(/%40/g, "@");
+          console.log("ARRYheartdataposts.html - /:get 52 email2->" + email2 );
+
+          //-----------------------------------
+          // username=thomas"
+          // replace username= with blanks
+          let username1 = Cookies[1].replace(/username=/g, "");
+          console.log("ARRYheartdataposts.html - /:get 57 username1->" + username1 );
+          
+          // replace " with blanks symbol
+          let username2 = username1.replace(/"/g, "");
+          console.log("ARRYheartdataposts.html - /:get 62 username2->" + username2 );
+          console.log("ARRYheartdataposts.html - /:get 63 email2 ->" + email2);
+          */
+          //fill in the values on load
+          document.getElementById('author').value = '<%= the_username %>' ;
+          document.getElementById('email').value = '<%= the_user_email %>' ;
+          
+      }
+  </script>
+  <style type="text/css">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    <!--
+    /* @group Blink */
+    .blink {
+     -webkit-animation: blink .75s linear infinite;
+     -moz-animation: blink .75s linear infinite;
+     -ms-animation: blink .75s linear infinite;
+     -o-animation: blink .75s linear infinite;
+     animation: blink .75s linear infinite;
+    }
+    @-webkit-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-moz-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-ms-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-o-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    /* @end */
+    </style>
+
+  <script>
+    function blinker()
+    {
+    $('.blink_me').fadeOut(500);
+    $('.blink_me').fadeIn(500);
+    }
+
+    setInterval(blinker,1000);
+  </script>
+<script>
+  //location.href='http://localhost:3000/questionnaire.html'; doesn't work on heroku
+  function questionnaire() {
+      location.href='questionnaire.html';
+  }
+  function filteredheartdata() {
+      location.href='HFheartdatapostsfilterpage1';
+  }
+  function enternewheartdataposts() {
+      location.href ='/'+ '/HFheartdataposts_html/<%= the_user_id %>';
+    }
+    function mymenu() {
+      //go up one route '/'
+      location.href='/' + 'myprofilemenu/<%= the_user_id %>';
+  }
+  </script>
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>spaceCHF</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-------------------------------------------------------------->
+    <!--needed to make datepicker work right-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        $( function() {
+        
+            $('#datepicker').datepicker({
+                weekStart: 1,
+                daysOfWeekHighlighted: "6,0",
+                autoclose: true,
+                todayHighlight: true,
+            });
+            $('#datepicker').datepicker("setDate", new Date());
+        } );
+    </script> 
+</head>
+
+<main>
+  <div class="row">
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-10">
+        <h1><%= the_username %> - enter heart failure post </h1>
+       <div class="main">
+          <div class="col-md-6 col-sm-12">
+                   <div class="login-form">
+
+                      <form action="/HFheartdataposts_htmlsubmit" method="GET"> 
+                          <div class="form-group">
+                              <label>Author:</label>
+                              <input type="text" class="form-control" placeholder="author" name="author" id="author">
+                          </div>
+                          <div hidden class="form-group">
+                              <label>email:</label>
+                              <input type="text" class="form-control" placeholder="email" name="email" id="email"><br>
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. Email is used to tell you someone responded</small>
+                          </div>
+                          <div hidden class="form-group">
+                              <label>user_id:</label>
+                              <input type="text" class="form-control" placeholder="user_id" name="user_id" id="user_id" value="<%= the_user_id %>"><br>
+                          </div>
+                          <div class="form-group">
+                              <script>
+
+                                  $( function() {
+                                      $( "#datepicker" ).datepicker({
+                                          changeMonth: true,
+                                          changeYear: true
+                                      });
+                                  } );
+                                  </script>
+                              <label>Date</label>
+                              <input type="text" class="form-control" placeholder="date" id="datepicker" name="datepicker">
+                          </div>
+                          <div class="form-group">
+                              <label>Subject</label>
+                              <input type="text" class="form-control" placeholder="subject" id="replys_subject" name="replys_subject">
+                          </div>
+                          <div class="form-group">
+                              <input type="hidden" class="form-control" id="category" name="category" value="heart_failure">
+                          </div>
+                          <div class="form-group">
+                              <label>your question or statement:</label><br>
+                              <textarea type="text" class="form-control" rows="8" cols="50" placeholder="comment - Check spam folder for responses to your email - links or strange characters may not save correctly" id="replys" name="replys" ></textarea>
+                              <textarea hidden id="comment" name="comment" rows="10" cols="100"></textarea> 
+                          </div>
+                          <input type="submit" value="Submit">
+
+                          
+                      </form>
+                </div>  <!-- <div class="login-form">-->
+
+
+           
+                  
+    
+          </div> <!-- <div class="col-md-6 col-sm-12">-->
+      </div>  <!-- <div class="main"> -->
+    </div>  <!-- <div class="col-sm-10">-->
+  </div>   <!-- <div class="row">-->
+
+</main>
+
+

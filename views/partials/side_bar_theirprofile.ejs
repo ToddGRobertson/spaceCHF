@@ -1,0 +1,114 @@
+<head>
+<script>
+  function send_message( this_user_id ){ //(myDIV){
+    /*
+        var x = document.getElementById(myDIV);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+        */
+        location.href='/' + 'message/this_user_id';
+      }
+</script>
+</head>
+<main>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="jumbotron">
+        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/myprofilehome/<%= the_user_id %>">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/myprofilesearchpage1/<%= the_user_id %>">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/messages/<%=the_user_id%>">Messages</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                their profile
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/myprofile/<%=the_user_id%>">Your profile</a></li>
+                <li><a class="dropdown-item" href="/myprofilephoto/<%=the_user_id%>">Upload your photo</a></li>
+                <li><a class="dropdown-item" href="/myprofilecityandstate/<%=the_user_id%>">Edit City and State</a></li>
+                <li><a class="dropdown-item" href="/myprofilepatientorcaregiver/<%=the_user_id%>">Edit patient or caregiver</a></li>
+                <li><a class="dropdown-item" href="/myprofilebriefdescription/<%=the_user_id%>">Edit brief description</a></li>
+                <li><a class="dropdown-item" href="/myprofiledetaileddescription/<%=the_user_id%>">Edit detailed description</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/forums">Forums</a>
+            </li>          
+          </ul>
+  
+        <!--</div>-->
+      </div> <!-- <div class="jumbotron"> -->
+    </div>  <!-- <div class="col-sm-2"> -->
+  
+    <div class="col-sm-10">
+      <div class="w3-container w3-teal">
+        <h1><%= the_username %> = their profile </h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+    
+       <div class="main">
+          <div class="col-md-6 col-sm-12">
+              
+
+                  <div class="form-group">
+                      <label hidden >User_id:</label>
+                      <input hidden type="text" class="form-control" placeholder="user_id" value="<%= the_user_id %>">
+                      <input hidden type="text" class="form-control" placeholder="user_id" value="<%= the_image %>">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Photo:</label>
+                    <!--<img src="../img_girl.jpg" alt="Girl in a jacket1" width="500" height="600">  -->
+                    <img src="../../../<%= the_image %>" alt="Girl in a jacket3" width="250" height="300"> 
+                    <!--<img src="../images/photo-1639423783505.jpg" alt="Girl in a jacket3a" width="500" height="600"> 
+                    <img src="../../uploads/images/photo-1639423783505.jpg" alt="Girl in a jacket4" >
+                    <!--<img src="/uploads/images/<%= the_image %>" class="form-control" placeholder="city"  alt="a member">-->
+                 </div>
+                 <div class="form-group">
+                  <a href="../../../myprofilemessagetoreceiver/<%=the_user_id%>/<%= the_receiver_id %>" >message</a>
+                </div>
+                  <div class="form-group">
+                    <label>City:</label>
+                    <input  disabled type="text" class="form-control" placeholder="city" value="<%= the_city %>" >
+                 </div>
+                 <div class="form-group">
+                  <label>State:</label>
+                  <input disabled type="text" class="form-control" placeholder="state" value="<%= the_state %>" >
+               </div>
+               <div class="form-group">
+                <label>Patient or Caregiver:</label>
+                <input disabled type="text" class="form-control" placeholder="patient_or_caregiver" value="<%= the_patient_or_caregiver  %>">
+             </div>
+             <div class="form-group">
+              <label>Illness:</label>
+              <input disabled type="text" class="form-control" placeholder="illness" value="<%= the_illness %>">
+           </div>
+               <div class="form-group">
+                <label>brief description:</label><br>
+                <textarea disabled type="text" rows="5" cols="50" class="form-control" placeholder="brief_description"  ><%= the_brief_description  %></textarea>
+               </div>
+               <div class="form-group">
+                <label>detailed description:</label><br>
+                <textarea disabled type="text" rows="5" cols="50" class="form-control" placeholder="detailed_description" ><%= the_detailed_description %></textarea>
+               </div>
+                </form>
+              
+    
+            </div> <!-- <div class="col-md-6 col-sm-12">-->
+      </div>  <!-- <div class="main"> -->
+    </div>  <!-- <div class="col-sm-10">-->
+  </div>   <!-- <div class="row">-->
+  </main>
+
+

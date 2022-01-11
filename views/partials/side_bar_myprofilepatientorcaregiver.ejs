@@ -1,0 +1,60 @@
+<main>
+  <div class="row">  
+    <div class="col-sm-2">
+        
+          
+    </div>
+    <div class="col-sm-10">
+      <div class="w3-container w3-teal">
+        <h1><%= the_username %> - myprofile patient or caregiver</h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+    
+       <div class="main">
+          <div class="col-md-6 col-sm-12">
+              <div class="login-form">
+  
+                <form action="../../myprofilepatientorcaregiveredit" method="GET"> 
+
+                  <div class="form-group">
+                      <label hidden >User_id:</label>
+                      <input hidden type="text" class="form-control" placeholder="user_id" name="user_id" id="user_id" value="<%= the_user_id %>">
+                  </div>
+                  <div class="form-group">
+                   <label>Patient or caregiver:  </label><br>
+                   <select class="form-control" placeholder="patient_or_caregiver" name="patient_or_caregiver" id="patient_or_caregiver">
+                    <option value="none_selected" selected>Please make a selection</option>
+                    <option value="patient">patient</option>
+                    <option value="caregiver">caregiver</option>
+                  </select>		<br>
+                  </div>
+                  <div class="form-group">
+                    <label>illness of patient: </label><br>
+                    <select class="form-control" placeholder="illness" name="illness" id="illness">
+                      <option value="none_selected" selected >Please make a selection</option>
+                     <option value="arrythmia">arrythmia</option>
+                     <option value="heart_attack">heart attack</option>
+                     <option value="procedures">procedures</option>
+                     <option value="cardiomyopathy">cardiomyopathy</option>
+                     <option value="heart_failure" >heart failure</option>
+                     <option value="vascular disease">vascular disease</option>
+                     <option value="hypertrophic cardiomyopathy">hypertrophic cardiomyopathy</option>
+                     <option value="heart_valve_disease">heart valve disease</option>
+                     <option value="venous_thrombo_embolism">venous thromboembolism</option>
+                     <option value="congenital">congenital</option>
+                     <option value="maternal_health">maternal health</option>
+                     <option value="peripheral_artery_disease">peripheral artery disease</option>
+                   </select>		<br>
+                   </div>
+                  
+                  </div>
+                  <input type="submit" value="Submit">
+
+                </form>
+              
+              </div> <!--  div class="login-form">-->    <!-- script below highlights date-->
+    
+            </div> <!-- <div class="col-md-6 col-sm-12">-->
+      </div>  <!-- <div class="main"> -->
+    </div>  
+  </div>   <!-- <div class="row">-->
+  </main>

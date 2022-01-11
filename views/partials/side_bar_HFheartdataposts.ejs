@@ -1,0 +1,118 @@
+<head>
+  <script>
+    function mylogout(user_id) {
+            //  '/' moves routing back up one level to root
+                location.href='/' + 'logout/user_id';
+    }
+    function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,5000);
+  </script>
+  <style type="text/css">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    </style>
+
+  <script>
+    function blinker()
+    {
+    $('.blink_me').fadeOut(500);
+    $('.blink_me').fadeIn(500);
+    }
+
+    setInterval(blinker,1000);
+  </script>
+<script>
+  //location.href='http://localhost:3000/questionnaire.html'; doesn't work on heroku
+  function questionnaire() {
+      location.href='questionnaire.html';
+  }
+  function filteredheartdata() {
+      location.href='HFheartdatapostsfilterpage1';
+  }
+  function enternewheartdataposts() {
+      location.href ='/'+ 'HFheartdataposts_html/<%= the_user_id %>';
+    }
+    function mymenu() {
+      //go up one route '/'
+      location.href='/' + 'myprofilemenu/<%= the_user_id %>';
+  }
+  </script>
+
+</head>
+<main>
+  <div class="row">
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-10">
+      <div class="w3-container w3-teal">
+        <h1><%= the_username %> - myprofile </h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+    
+       <div class="main">
+          <div class="col-md-6 col-sm-12">
+              
+
+            <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-3" style="background-color:lavender;"><a href='/HFquestionnaire_html/<%= the_user_id %>' >heart failure questionnaire</a></div>
+                  <div class="col-sm-3" style="background-color:lavender;"><a href='/HFheartdatapostsfilterRouterpage1/<%= the_user_id %>' >heart failure forum (sorted, paginated and keyword search)</a></div>
+                  <div class="col-sm-3" style="background-color:lavender;"><a href='/HFheartdataposts_html/<%= the_user_id %>' >enter a new post - heart failure</a></div>
+                  <div class="col-sm-3" style="background-color:lavender;"><a href='/myprofilemenu/<%= the_user_id %>' >go to menu</a></div>
+                  
+              </div>
+            </div>
+        
+            
+            
+            
+            
+            
+            <p>there are <%= title.length %> comments</p>
+            <p>there is a capacity to display the most recent 500 comments using a keyword search with the sorted, paginated pages </p>
+            <p>heart failure forum</p>
+            <%  count_entries = 0 %>
+        
+          
+        
+            <ul id="myUL"></ul>
+            <% for (var i = 0; i < title.length ; i++) { %>
+              <% count_entries++  %>
+              <div style="float: left; width: 80%;">
+                <%= i + 1 %>)
+              </div>
+                <li><a href="#"><%=  title[i]._id %></a></li><hr>
+                <li><a href="#"><%=  title[i].author %></a></li><hr>
+                <li><a href="#"><%=  title[i].datepicker %></a></li><hr>
+                <li><a href="#"><%=  title[i].replys_subject %></a></li><hr>
+                <li><a href="#"><%=  title[i].replys %></a></li><hr>
+                <!-- <li><a href="#"><%=  title[i].comments %></a></li><hr> -->
+                <p> comments</p>
+               
+            <% } %>
+            </ul>
+
+
+                  
+    
+          </div> <!-- <div class="col-md-6 col-sm-12">-->
+      </div>  <!-- <div class="main"> -->
+    </div>  <!-- <div class="col-sm-10">-->
+  </div>   <!-- <div class="row">-->
+  </main>
+
+

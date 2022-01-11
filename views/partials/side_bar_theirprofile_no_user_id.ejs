@@ -1,0 +1,93 @@
+<head>
+<script>
+  function send_message( this_user_id ){ //(myDIV){
+    /*
+        var x = document.getElementById(myDIV);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+        */
+        location.href='/' + 'message/this_user_id';
+      }
+</script>
+</head>
+<main>
+  <div class="row">  
+    <div class="col-sm-6">
+      <div class="left">
+        <div class="main">
+          <!-- <div class="col-md-6 col-sm-12"> -->
+              
+            <h1><%= the_username %> = their profile </h1>
+                  <div class="form-group">
+                      <label hidden >User_id:</label>
+                      <input hidden type="text" class="form-control" placeholder="user_id" value="<%= the_image %>">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Photo:</label>
+                    <!--<img src="../img_girl.jpg" alt="Girl in a jacket1" width="500" height="600">  -->
+                    <img src="../../../<%= the_image %>" alt="Girl in a jacket3" width="250" height="300"> 
+                    <!--<img src="../images/photo-1639423783505.jpg" alt="Girl in a jacket3a" width="500" height="600"> 
+                    <img src="../../uploads/images/photo-1639423783505.jpg" alt="Girl in a jacket4" >
+                    <!--<img src="/uploads/images/<%= the_image %>" class="form-control" placeholder="city"  alt="a member">-->
+                 </div>
+                 <div class="form-group">
+                  <a href="../../../myprofilemessagetoreceiver/<%= the_receiver_id %>" >message</a>
+                </div>
+                  <div class="form-group">
+                    <label>City:</label>
+                    <input  disabled type="text" class="form-control" placeholder="city" value="<%= the_city %>" >
+                 </div>
+                 <div class="form-group">
+                  <label>State:</label>
+                  <input disabled type="text" class="form-control" placeholder="state" value="<%= the_state %>" >
+               </div>
+               <div class="form-group">
+                <label>Patient or Caregiver:</label>
+                <input disabled type="text" class="form-control" placeholder="patient_or_caregiver" value="<%= the_patient_or_caregiver  %>">
+             </div>
+             <div class="form-group">
+              <label>Illness:</label>
+              <input disabled type="text" class="form-control" placeholder="illness" value="<%= the_illness %>">
+           </div>
+               <div class="form-group">
+                <label>brief description:</label><br>
+                <textarea disabled type="text" rows="5" cols="50" class="form-control" placeholder="brief_description"  ><%= the_brief_description  %></textarea>
+               </div>
+               <div class="form-group">
+                <label>detailed description:</label><br>
+                <textarea disabled type="text" rows="5" cols="50" class="form-control" placeholder="detailed_description" ><%= the_detailed_description %></textarea>
+               </div>
+                </form>
+              
+    
+            <!--</div>  <div class="col-md-6 col-sm-12">-->
+        </div>  <!-- <div class="main"> -->
+      </div>   <!-- <div class="left"> -->
+    </div>  <!-- <div class="col-sm-6">-->
+    <div class="col-sm-6">
+      <div class="login-form">
+        <h3>Login</h3>
+        <form action="/login" method="GET">  
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" placeholder="email" name="email" id="email">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+              </div>
+              <input type="submit" value="Login">
+              <hr>
+            <p><a href="/register_user"> New User</a></p>
+            <p><a href="/sendmypassword"> Forgot my Password</a></p>
+        </form> 
+      </div> <!-- <div class="login-form"> -->
+    </div>  <!-- <div class="col-sm-5"> -->
+  </div>   <!-- <div class="row">-->
+  </main>
+
+

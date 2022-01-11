@@ -1,0 +1,141 @@
+<head>
+  <script>
+    function mylogout(user_id) {
+            //  '/' moves routing back up one level to root
+                location.href='/' + 'logout/user_id';
+    }
+    function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,5000);
+
+    function mylogout(user_id) {
+            //  '/' moves routing back up one level to root
+                location.href='/' + 'logout/user_id';
+    }
+    function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,5000);
+
+
+    function gotoarrythmiadataposts() {
+      //go up one route using '/' +
+        location.href='/' + 'ARRYheartdataposts';
+    }
+    function gotoheartattackdataposts() {
+        location.href='/' + 'HAheartdataposts';
+    }
+    function myFunction() {
+        location.href='/' +'helloworld';
+    }
+    function gotoheartdataposts() {
+        location.href='/HFheartdataposts/<%= the_user_id %>';
+    }
+
+
+    function gotocardiomyopathyposts() {
+        location.href='/'+ 'CARDIOheartdataposts';
+    }
+    function gotohypertrophiccardiomyopathyposts() {
+        location.href='/' + 'HYPERCARDIOheartdataposts';
+    }
+
+    function gotoheartvalvediseaseposts() {
+        location.href='/' + 'HVDheartdataposts';
+    }
+    function gotocongenitalheartdefectsposts() {
+        location.href='/' + 'CONGheartdataposts';
+    }
+    function gotomaternalhealthposts() {
+        location.href='/' + 'MATERNALheartdataposts';
+    }
+
+    function gotovasculardiseasesposts() {
+        location.href='/' + 'VASCULARheartdataposts';
+    }
+    function gotoproceduresposts() {
+        location.href='/' + 'proceduresheartdataposts';
+    }
+
+    function gotoperipheralarteryposts() {
+        location.href='/' + 'PADheartdataposts';
+    }
+    function gotovenousthromboembolismposts() {
+        location.href='/' + 'VENOUSTHROMBOheartdataposts';
+    }
+    function makeanewpost() {
+        location.href='/' + 'HFheartdataposts.html/<%= the_user_id %>';
+    }
+    function gotocaregiverheart() {
+        location.href='/' +'CAREGIVERHEARTheartdataposts';
+    }
+    function gotocaregiverstroke() {
+        location.href='/'+ 'CAREGIVERSTROKEheartdataposts';
+    }
+</script>
+ 
+</head>
+<main>
+  <div class="row">  
+    <div class="col-sm-2">
+        
+          
+    </div>
+    <div class="col-sm-10">
+      <div class="w3-container w3-teal">
+        <h1><%= the_username %> - myprofile menu </h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+    
+       <div class="main">
+          <div class="col-md-6 col-sm-12">
+              
+            <div class="container-fluid">
+    
+              
+            <p>questions - Todd @ trobert612t@netscape.net - coursera node.js student</p>
+            <h2>spaceCHF <br></h2>
+            <p>Thank you for using this site. </p>
+            
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotoarrythmiadataposts()"> Arrythmia forum (under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;"><button onclick="gotoheartattackdataposts()"> heart attack forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotoproceduresposts()"> procedures forum(under construction)</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotocardiomyopathyposts()">cardiomyopathy forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavender;"><a href="/HFheartdataposts/<%= the_user_id %>" >heart failure forum with <u>questionnaire</u></a></div>
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotovasculardiseasesposts()">vascular diseases forum(under construction)</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotohypertrophiccardiomyopathyposts()">hypertrophic cardiomyopathy forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;"><button onclick="gotoheartvalvediseaseposts()">heart valve disease forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotovenousthromboembolismposts()">venous thromboembolism forum(under construction)</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotocongenitalheartdefectsposts()">congenital heart defects forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;"><button onclick="gotomaternalhealthposts()">maternal health forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotoperipheralarteryposts()">peripheral artery disease forum(under construction)</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;">.<button onclick="gotocaregiverheart()" > caregiver heart forum(under construction)</button></div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;"></div>
+                    <div class="col-sm-4" style="background-color:lavender;"><button onclick="gotocaregiverstroke()" > caregiver stroke forum(under construction)</button></div>
+                </div>
+              </div>
+            </div>
+                  
+              
+    
+          </div> <!-- <div class="col-md-6 col-sm-12">-->
+      </div>  <!-- <div class="main"> -->
+    </div>  <!-- <div class="col-sm-10">-->
+  </div>   <!-- <div class="row">-->
+  </main>
+
+

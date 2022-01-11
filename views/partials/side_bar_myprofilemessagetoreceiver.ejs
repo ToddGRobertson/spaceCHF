@@ -1,0 +1,90 @@
+<main>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="jumbotron">
+        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/myprofilehome/<%= the_user_id %>">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/myprofilesearchpage1/<%= the_user_id %>">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/messages/<%=the_user_id%>">Messages</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                myprofile
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/myprofile/<%=the_user_id%>">Your profile</a></li>
+                <li><a class="dropdown-item" href="/myprofilephoto/<%=the_user_id%>">Upload your photo</a></li>
+                <li><a class="dropdown-item" href="/myprofilecityandstate/<%=the_user_id%>">Edit City and State</a></li>
+                <li><a class="dropdown-item" href="/myprofilepatientorcaregiver/<%=the_user_id%>">Edit patient or caregiver</a></li>
+                <li><a class="dropdown-item" href="/myprofilebriefdescription/<%=the_user_id%>">Edit brief description</a></li>
+                <li><a class="dropdown-item" href="/myprofiledetaileddescription/<%=the_user_id%>">Edit detailed description</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/forums">Forums</a>
+            </li>          
+          </ul>
+  
+        <!--</div>-->
+      </div> <!-- <div class="jumbotron"> -->
+    </div>  <!-- <div class="col-sm-2"> -->
+  
+    <div class="col-sm-10">
+      <div class="w3-container w3-teal">
+        <h1>Message from : <%= message_from %>  Message to : <%= message_to %> - myprofile message to receiver</h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+    
+       <div class="main">
+          <div class="col-md-6 col-sm-12">
+              <div class="login-form">
+  
+                <form action="../../myprofilemessageedit" method="GET"> 
+
+                  <div class="form-group">
+                      <label hidden >User_id:</label>
+                      <input hidden type="text" class="form-control" placeholder="user_id" name="user_id" id="user_id" value="<%= the_user_id %>">
+                  </div>
+                  <div class="form-group">
+                    <label  >receiver id:</label>
+                    <input  type="text" class="form-control" placeholder="receiver_id" name="receiver_id" id="receiver_id" value="<%= receiver_id %>">
+                </div>
+                <div class="form-group">
+                  <label  >sender image:</label>
+                  <input  type="text" class="form-control" placeholder="sender_image" name="sender_image" id="sender_image" value="<%= sender_image %>">
+                </div>
+                  <div class="form-group">
+                    <label  >receiver name:</label>
+                    <input  type="text" class="form-control" placeholder="receiver_name" name="receiver_name" id="receiver_name" value="<%= receiver_name %>">
+                </div>
+                <div class="form-group">
+                  <label  >date:</label>
+                  <input  type="text" class="form-control" placeholder="date" name="date" id="date" value="<%= new Date() %>">
+              </div>
+                <div class="form-group">
+                  <label  >subject:</label>
+                  <input  type="text" class="form-control" placeholder="subject" name="subject" id="subject" >
+              </div>
+                  <div class="form-group">
+                   <label>message:</label><br>
+                   <textarea type="text" rows="5" cols="50" class="form-control" placeholder="message" id="message" name="message" ></textarea>
+                  
+                  </div>
+                  <input type="submit" value="Submit">
+
+                </form>
+              
+              </div> <!--  div class="login-form">-->    <!-- script below highlights date-->
+    
+            </div> <!-- <div class="col-md-6 col-sm-12">-->
+      </div>  <!-- <div class="main"> -->
+    </div>  
+  </div>   <!-- <div class="row">-->
+  </main>

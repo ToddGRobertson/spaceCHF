@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>supportgroupheartdisease</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        .label {
+          color: white;
+          padding: 8px;
+          font-family: Arial;
+          font-size: 12px;
+        }
+        .success {background-color: #04AA6D;} /* Green */
+        .info {background-color: #2196F3;} /* Blue */
+        .warning {background-color: #ff9800;} /* Orange */
+        .danger {background-color: #f44336;} /* Red */ 
+        .other {background-color: #e7e7e7; color: black;} /* Gray */ 
+        </style>
+ </head>
+
+  <!--<button onclick="myFunction_II()">Display heart data</button>-->
+  <button onclick="gotomenu()">menu</button>
+
+  <script>
+      //location.href='http://localhost:3000/heartdataposts'; doesn't work with heroku
+  function myFunction_II() {
+      //not used
+        location.href='heartdataposts';
+    }
+  function gotomenu() {
+      location.href='menu.html';
+    }
+  </script>
+  <body>
+    <p><%= title.length %> entries</p>
+    <%  count_entries = 0 %>
+    <!-- activitiesafterdiagnosis -->
+    <!-- 01 -->
+    <%  count_activitiesafterdiagnosis_walking = 0 %>
+    <%  count_activitiesafterdiagnosis_swimming = 0 %>
+    <%  count_activitiesafterdiagnosis_dancing = 0 %>
+    <%  count_activitiesafterdiagnosis_walking_in_home = 0 %>
+    <%  count_activitiesafterdiagnosis_Get_Winded_Just_Walking_Around = 0 %>
+    <%  count_activitiesafterdiagnosis_Bedridden = 0 %>
+    <%  count_activitiesafterdiagnosis_dont_know = 0 %>
+    <!--   amountoftimesleepingafterdiagnosis_2-->
+    <!-- 02 -->
+    <%  count_amountoftimesleepingafterdiagnosis_2 = 0 %>
+    <%  count_amountoftimesleepingafterdiagnosis_4 = 0 %>
+    <%  count_amountoftimesleepingafterdiagnosis_6 = 0 %>
+    <%  count_amountoftimesleepingafterdiagnosis_8 = 0 %>
+    <%  count_amountoftimesleepingafterdiagnosis_10 = 0 %>
+    <%  count_amountoftimesleepingafterdiagnosis_12 = 0 %>
+    <%  count_amountoftimesleepingafterdiagnosis_wants_to_sleep_all_day = 0 %>
+
+    <!--   patientstoppedlivinglifefterdiagnosis-->
+    <!-- 03 -->
+    <%  count_patientstoppedlivinglifeafterdiagnosis_dont_know = 0 %>
+    <%  count_patientstoppedlivinglifeafterdiagnosis_patient_stopped_living_life = 0 %>
+    <%  count_patientstoppedlivinglifeafterdiagnosis_patient_living_normally = 0 %>
+    <!-- depressionafterdiagnosis -->
+    <!-- 04 -->
+    <%  count_depressionafterdiagnosis_dont_know = 0 %>
+    <%  count_depressionafterdiagnosis_depressed_after_diagnosis = 0 %>
+    <%  count_depressionafterdiagnosis_not_depressed_after_diagnosis = 0 %>
+
+    <!-- seeingfamilyandfriendsafterdiagnosis-->
+    <!-- 05 -->
+    <%  count_seeingfamilyandfriendsafterdiagnosis_dont_know = 0 %>
+    <%  count_seeingfamilyandfriendsafterdiagnosis_not_seeing_family_and_friends_after_diagnosis = 0 %>
+    <%  count_seeingfamilyandfriendsafterdiagnosis_seeing_family_and_friends_after_diagnosis  = 0 %>
+
+    <!-- bedriddenafterdiagnosis-->
+    <!-- 06 -->
+    <%  count_bedriddenafterdiagnosis_dont_know = 0 %>
+    <%  count_bedriddenafterdiagnosis_patient_is_bedridden_after_diagnosis = 0 %>
+    <%  count_bedriddenafterdiagnosis_patient_moves_around_ok_after_diagnosis  = 0 %>
+    
+    <!-- usingwalkercanewheelchairafterdiagnosis-->
+    <!-- 07 -->
+    <%  count_usingwalkercanewheelchairafterdiagnosis_dont_know = 0 %>
+    <%  count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_walker = 0 %>
+    <%  count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_cane  = 0 %>
+    <%  count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_wheelchair = 0 %>
+    <%  count_usingwalkercanewheelchairafterdiagnosis_patient_is_bedridden = 0 %>
+
+    <!-- dilatedleftventricle-->
+    <!-- 08 -->
+    <%  count_dilatedleftventricle_dont_know = 0 %>
+    <%  count_dilatedleftventricle_left_ventricle_is_dilated = 0 %>
+    <%  count_dilatedleftventricle_left_ventricle_is_normal  = 0 %>
+    
+    <!-- takingmelatoninandconenzymeq10afterdiagnosis-->
+    <!-- 09 -->
+    <%  count_takingmelatoninandcoenzymeq10afterdiagnosis_dont_know = 0 %>
+    <%  count_takingmelatoninandcoenzymeq10afterdiagnosis_taking_coenzyme_Q10_melatonin_supplements = 0 %>
+    <%  count_takingmelatoninandcoenzymeq10afterdiagnosis_not_taking_supplements  = 0 %>
+
+    <!-- nolongerdrivingafterdiagnosis-->
+    <!-- 10 -->
+    <%  count_nolongerdrivingafterdiagnosis_dont_know = 0 %>
+    <%  count_nolongerdrivingafterdiagnosis_not_driving = 0 %>
+    <%  count_nolongerdrivingafterdiagnosis_still_driving  = 0 %>
+
+    <!-- nolongergoingoutsideafterdiagnosis-->
+    <!-- 11 -->
+    <%  count_nolongergoingoutsideafterdiagnosis_dont_know = 0 %>
+    <%  count_nolongergoingoutsideafterdiagnosis_no_longer_going_outside = 0 %>
+    <%  count_nolongergoingoutsideafterdiagnosis_still_going_outside  = 0 %>
+
+    <!-- stillusingacatheterbagafterdiagnosis-->
+    <!-- 12 -->
+    <%  count_stillusingacatheterbagafterdiagnosis_dont_know = 0 %>
+    <%  count_stillusingacatheterbagafterdiagnosis_still_using_catheter_bag = 0 %>
+    <%  count_stillusingacatheterbagafterdiagnosis_not_using_a_catheter_bag  = 0 %>
+
+    <!-- patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis-->
+    <!-- 13 -->
+    <%  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_dont_know = 0 %>
+    <%  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_1_year_to_live = 0 %>
+    <%  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_2_years_to_live  = 0 %>
+    <%  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_3_years_to_live  = 0 %>
+    <%  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_4_years_to_live  = 0 %>
+    <%  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_5_years_to_live  = 0 %>
+
+    <!-- extratimethepatienthaslivedafterdiagnosis-->
+    <!-- 14 -->
+    <%  count_extratimethepatienthaslivedafterdiagnosis_dont_know = 0 %>
+    <%  count_extratimethepatienthaslivedafterdiagnosis_still_in_1st_year = 0 %>
+    <%  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_1_year_more  = 0 %>
+    <%  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_2_years_more  = 0 %>
+    <%  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_3_years_more = 0 %>
+    <%  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_4_years_more  = 0 %>
+    <%  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_5_years_more  = 0 %>
+
+    <!-- patienthaspurplefeetwhenstandingafterdiagnosis-->
+    <!-- 15 -->
+    <%  count_patienthaspurplefeetwhenstandingafterdiagnosis_dont_know = 0 %>
+    <%  count_patienthaspurplefeetwhenstandingafterdiagnosis_patient_has_purple_feet_when_standing = 0 %>
+    <%  count_patienthaspurplefeetwhenstandingafterdiagnosis_patient_has_legs_and_feet_look_normal  = 0 %>
+
+    <!-- patientseeswolveschasinghimindreamsafterdiagnosis-->
+    <!-- 16 -->
+    <%  count_patientseeswolveschasinghimindreamsafterdiagnosis_dont_know = 0 %>
+    <%  count_patientseeswolveschasinghimindreamsafterdiagnosis_patient_sees_wolves_chasing_them_in_dreams_each_night = 0 %>
+    <%  count_patientseeswolveschasinghimindreamsafterdiagnosis_patient_sees_nothing_distressing_in_dreams_each_night  = 0 %>
+
+    <!-- patienthasstoppedlivingtheirlifeafterdiagnosis-->
+    <!-- 17 -->
+    <%  count_patienthasstoppedlivingtheirlifeafterdiagnosis_dont_know = 0 %>
+    <%  count_patienthasstoppedlivingtheirlifeafterdiagnosis_patient_stopped_living_their_life = 0 %>
+    <%  count_patienthasstoppedlivingtheirlifeafterdiagnosis_patient_living_a_normal_life  = 0 %>
+
+   <% for (var i = 0; i < title.length ; i++) { %>
+        <% count_entries++  %>
+        <!-- <h1>
+            <%=  title[i].activitiesafterdiagnosis %>
+        </h1> -->
+        <!-- -------------------------------------------------------------------- --->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("Walking") == 0 ){
+            <!-- 01 A-->
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_activitiesafterdiagnosis_walking++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <table border="1">
+                    <tr><td width="200px">
+                        <div style="float: left; width: 80%; ">
+                            <span class="label success">activities after diagnosis</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <label>Walking&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <span class="label info"><%=  count_activitiesafterdiagnosis_walking %></span><br>
+                        </div>
+
+                    </td></tr>
+                
+                
+            <% } %>
+            
+            </p>
+        <!-- -------------------------------------------------------------------- --->
+        <!--  compare activities after diagnosis to Swimming -->
+        <!-- 01 B-->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("Swimming") == 0 ){
+            <!--  increment activitiesafterdiagnosis_swimming by one -->
+            count_activitiesafterdiagnosis_swimming++
+        } %>
+        
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">activities after diagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>Swimming&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_activitiesafterdiagnosis_swimming %></span><br>
+                    </div>
+
+                </td></tr>
+            
+            <!--
+            <p>
+                <table border="1">
+                    <tr><td>
+                        ____________________
+                    </td>
+                    <td>
+                        Swimming
+                    </td>
+                    <td> <%=  count_activitiesafterdiagnosis_swimming %>
+                    </td></tr>
+                </table>
+            </p>
+            -->
+            <% } %>
+            
+        
+         <!-- -------------------------------------------------------------------- --->
+        <!--  compare activities after diagnosis to Dancing -->
+        <!-- 01 C-->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("Dancing") == 0 ){
+            <!--  increment activitiesafterdiagnosis_dancing by one -->
+            count_activitiesafterdiagnosis_dancing++
+        } %>
+        <p>
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">activities after diagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>Dancing&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_activitiesafterdiagnosis_dancing %></span><br>
+                    </div>
+
+                </td></tr>
+            
+                <!--
+                <table border="1">
+                    <tr><td>
+                        ____________________
+                    </td>
+                    <td>
+                        Dancing 
+                        </td>
+                        <td>
+                        <%=  count_activitiesafterdiagnosis_dancing %>
+                    </td></tr>
+                </table>
+                -->
+                
+            <%} %>
+            
+            </p>
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 01 D-->
+        <!--  compare activities after diagnosis to walking in Home -->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("Walking_in_home") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walkingInhome by one -->
+            count_activitiesafterdiagnosis_walking_in_home++
+        } %>
+        <p>
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">activities after diagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>Walking in home&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_activitiesafterdiagnosis_walking_in_home %></span><br>
+                    </div>
+
+                </td></tr>
+            
+               
+                <!--
+                <table border="1">
+                    <tr><td>
+                        ____________________
+                    </td>
+                    <td>
+                        Walking in home
+                        </td>
+                        <td> <%=  count_activitiesafterdiagnosis_walking_in_home %>
+                    </td></tr>
+                </table>
+                -->
+                
+            <% } %>
+            
+            </p>
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 01 E-->
+        <!--  compare activities after diagnosis to get winded just walking around -->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("Get_Winded_Just_Walking_Around") == 0 ){
+            <!--  increment activitiesafterdiagnosis_Get Winded Just Walking Around -->
+            count_activitiesafterdiagnosis_Get_Winded_Just_Walking_Around++
+        } %>
+        <p>
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">activities after diagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>Get Winded Just Walking around &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_activitiesafterdiagnosis_Get_Winded_Just_Walking_Around %></span><br>
+                    </div>
+
+                </td></tr>
+                
+                <!--
+                <table border="1">
+                    <tr><td>
+                        ____________________
+                    </td>
+                    <td>
+                        Get Winded Just Walking around 
+                    </td>
+                    <td><%=  count_activitiesafterdiagnosis_Get_Winded_Just_Walking_Around %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p>
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 01 F-->
+        <!--  compare activities after diagnosis to Bedridden -->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("Bedridden") == 0 ){
+            <!--  increment activitiesafterdiagnosis_Bedridden-->
+            count_activitiesafterdiagnosis_Bedridden++
+        } %>
+        <p>
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">activities after diagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>Bedridden &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_activitiesafterdiagnosis_Bedridden %></span><br>
+                    </div>
+
+                </td></tr>
+                
+                <!--  
+                <table border="1">
+                    <tr><td>
+                        ____________________
+                    </td>
+                    <td>
+                        Bedridden 
+                        </td>
+                        <td><%=  count_activitiesafterdiagnosis_Bedridden %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p>
+
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 01 G-->
+        <!--  compare activities after diagnosis to dont know -->
+        <% if( title[i].activitiesafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_Bedridden-->
+            count_activitiesafterdiagnosis_dont_know++
+        } %>
+        <p>
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">activities after diagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_activitiesafterdiagnosis_dont_know %></span><br>
+                    </div>
+
+                </td></tr>
+            </table>
+                
+                <!--
+                <table border="1">
+                    <tr><td>
+                        ____________________
+                    </td>
+                    <td>
+                        dont know <%=  count_activitiesafterdiagnosis_dont_know %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p>
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 02 -2 -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("2") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_2++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <table border="1">
+                    <tr><td width="200px">
+                        <div style="float: left; width: 80%; ">
+                            <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <label>2 hrs &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_2 %></span><br>
+                        </div>
+    
+                    </td></tr>
+                
+                <!--
+                <table border="1">
+                    <tr><td>
+                        amountoftimesleepingafterdiagnosis
+                    </td>
+                    <td>
+                        2 hrs <%=  count_amountoftimesleepingafterdiagnosis_2 %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p> 
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 02 -4 -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("4") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_4++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>4 hrs &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_4 %></span><br>
+                    </div>
+
+                </td></tr>
+            
+                
+                <!--
+                <table border="1">
+                    <tr><td>
+                        _______________________________
+                    </td>
+                    <td>
+                        4 hrs <%=  count_amountoftimesleepingafterdiagnosis_4 %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p> 
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 02 -6 -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("6") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_6++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>6 hrs &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_6 %></span><br>
+                    </div>
+
+                </td></tr>
+            
+               
+                <!--
+                <table border="1">
+                    <tr><td>
+                        _______________________________
+                    </td>
+                    <td>
+                        6 hrs <%=  count_amountoftimesleepingafterdiagnosis_6 %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p> 
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 02 - 8 -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("8") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_8++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>8 hrs &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_8 %></span><br>
+                    </div>
+
+                </td></tr>
+            
+                
+                <!--
+                <table border="1">
+                    <tr><td>
+                        _______________________________
+                    </td>
+                    <td>
+                        8 hrs <%=  count_amountoftimesleepingafterdiagnosis_8 %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p>  
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 02 - 10 -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("10") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_10++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>10 hrs &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_10 %></span><br>
+                    </div>
+
+                </td></tr>
+            
+            
+                <!--
+                <table border="1">
+                    <tr><td>
+                        _______________________________
+                    </td>
+                    <td>
+                        10 hrs <%=  count_amountoftimesleepingafterdiagnosis_10 %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p>   
+        <!-- -------------------------------------------------------------------- --->
+        <!-- 02 - 12 -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("12") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_12++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>12 hrs &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_12 %></span><br>
+                    </div>
+
+                </td></tr>
+            
+                
+                <!--
+                <table border="1">
+                    <tr><td>
+                        _______________________________
+                    </td>
+                    <td>
+                        12 hrs <%=  count_amountoftimesleepingafterdiagnosis_12 %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p>  
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 02 - wants to sleep all day -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].amountoftimesleepingafterdiagnosis.localeCompare("wants_to_sleep_all_day") == 0 ){
+            <!--  increment activitiesafte_______________________________rdiagnosis_walking by one -->
+            count_amountoftimesleepingafterdiagnosis_wants_to_sleep_all_day++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">amountoftimesleepingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>wants to sleep all day &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_amountoftimesleepingafterdiagnosis_wants_to_sleep_all_day %></span><br>
+                    </div>
+
+                </td></tr>
+            </table>
+            
+                <!--
+                <table border="1">
+                    <tr><td>
+                        _______________________________
+                    </td>
+                    <td>
+                        wants to sleep all day <%=  count_amountoftimesleepingafterdiagnosis_wants_to_sleep_all_day %>
+                    </td></tr>
+                </table>
+            -->
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 03 - A wants to sleep all day -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientstoppedlivinglifeafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientstoppedlivinglifeafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <table border="1">
+                    <tr><td width="200px">
+                        <div style="float: left; width: 80%; ">
+                            <span class="label success">patientstoppedlivinglifeafterdiagnosis</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <label>dont know &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <span class="label info"><%=  count_patientstoppedlivinglifeafterdiagnosis_dont_know %></span><br>
+                        </div>
+
+                    </td></tr>
+                
+                
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 03 - B wants to sleep all day -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientstoppedlivinglifeafterdiagnosis.localeCompare("patient_stopped_living_life") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientstoppedlivinglifeafterdiagnosis_patient_stopped_living_life++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">patientstoppedlivinglifeafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient stopped living life &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientstoppedlivinglifeafterdiagnosis_patient_stopped_living_life %></span><br>
+                    </div>
+
+                </td></tr>
+            
+                
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 03 - C wants to sleep all day -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientstoppedlivinglifeafterdiagnosis.localeCompare("patient_living_normally") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientstoppedlivinglifeafterdiagnosis_patient_living_normally++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">patientstoppedlivinglifeafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient living normally &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientstoppedlivinglifeafterdiagnosis_patient_living_normally %></span><br>
+                    </div>
+
+                </td></tr>
+            </table>
+                
+                
+            <% } %>
+            </p> 
+
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 04 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].depressionafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_depressionafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <table border="1">
+                    <tr><td width="200px">
+                        <div style="float: left; width: 80%; ">
+                            <span class="label success">depressionafterdiagnosis</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <label>dont know &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <span class="label info"><%=  count_depressionafterdiagnosis_dont_know %></span><br>
+                        </div>
+    
+                    </td></tr>
+                
+                    
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 04 - b  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].depressionafterdiagnosis.localeCompare("depressed_after_diagnosis") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_depressionafterdiagnosis_depressed_after_diagnosis++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">depressionafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>depressed after diagnosisdont know &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_depressionafterdiagnosis_depressed_after_diagnosis %></span><br>
+                    </div>
+
+                </td></tr>
+            
+                
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 04 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].depressionafterdiagnosis.localeCompare("not_depressed_after_diagnosis") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_depressionafterdiagnosis_not_depressed_after_diagnosis++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">depressionafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>not depressed after diagnosis &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_depressionafterdiagnosis_not_depressed_after_diagnosis %></span><br>
+                    </div>
+
+                </td></tr>
+            </table>
+                
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 05 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].seeingfamilyandfriendsafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_seeingfamilyandfriendsafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+         <table border="1">
+            <tr><td width="200px">
+                <div style="float: left; width: 80%; ">
+                    <span class="label success">seeingfamilyandfriendsafterdiagnosis</span>
+                </div>
+            </td>
+            <td>
+                <div style="float: left; width: 80%; ">
+                    <label>dont know &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </div>
+            </td>
+            <td>
+                <div style="float: left; width: 80%; ">
+                    <span class="label info"><%=  count_seeingfamilyandfriendsafterdiagnosis_dont_know %></span><br>
+                </div>
+
+            </td></tr>
+        
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 05 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].seeingfamilyandfriendsafterdiagnosis.localeCompare("seeing_family_and_friends_after_diagnosis") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_seeingfamilyandfriendsafterdiagnosis_seeing_family_and_friends_after_diagnosis++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">seeingfamilyandfriendsafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>seeing family and friends &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_seeingfamilyandfriendsafterdiagnosis_seeing_family_and_friends_after_diagnosis %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 05 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].seeingfamilyandfriendsafterdiagnosis.localeCompare("not_seeing_family_and_friends_after_diagnosis") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_seeingfamilyandfriendsafterdiagnosis_not_seeing_family_and_friends_after_diagnosis++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">seeingfamilyandfriendsafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>not seeing family and friends &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_seeingfamilyandfriendsafterdiagnosis_not_seeing_family_and_friends_after_diagnosis %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+               
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 06 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].bedriddenafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_bedriddenafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">bedriddenafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know</label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_bedriddenafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+                
+                
+            <% } %>
+            
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 06 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].bedriddenafterdiagnosis.localeCompare("patient_is_bedridden") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_bedriddenafterdiagnosis_patient_is_bedridden_after_diagnosis++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">bedriddenafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient is bedridden</label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_bedriddenafterdiagnosis_patient_is_bedridden_after_diagnosis %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+               
+                
+            <% } %>
+            
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 06 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].bedriddenafterdiagnosis.localeCompare("patient_moves_around_ok") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_bedriddenafterdiagnosis_patient_moves_around_ok_after_diagnosis++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">bedriddenafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient moves around ok </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_bedriddenafterdiagnosis_patient_moves_around_ok_after_diagnosis %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 07 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].usingwalkercanewheelchairafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_usingwalkercanewheelchairafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">usingwalkercanewheelchairafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_usingwalkercanewheelchairafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 07 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].usingwalkercanewheelchairafterdiagnosis.localeCompare("patient_uses_a_walker") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_walker++
+        } %>
+        <p>
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">usingwalkercanewheelchairafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>uses a walker </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_walker %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 07 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].usingwalkercanewheelchairafterdiagnosis.localeCompare("patient_uses_a_cane") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_cane ++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">usingwalkercanewheelchairafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>uses a cane</label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_usingwalkercanewheelchairafterdiagnosis_patient_uses_a_cane %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 07 - D  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].usingwalkercanewheelchairafterdiagnosis.localeCompare("patient_is_bedridden") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_usingwalkercanewheelchairafterdiagnosis_patient_is_bedridden ++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">usingwalkercanewheelchairafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient is bedridden </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_usingwalkercanewheelchairafterdiagnosis_patient_is_bedridden %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p>
+
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 08 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].dilatedleftventricle.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_dilatedleftventricle_dont_know ++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+             <table border="1">   
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">dilatedleftventricle</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_usingwalkercanewheelchairafterdiagnosis_patient_is_bedridden %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+            
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 08 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].dilatedleftventricle.localeCompare("left_ventricle_is_dilated") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_dilatedleftventricle_left_ventricle_is_dilated ++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">dilatedleftventricle</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>left_ventricle_is_dilated </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_dilatedleftventricle_left_ventricle_is_dilated %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 08 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].dilatedleftventricle.localeCompare("left_ventricle_is_normal") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_dilatedleftventricle_left_ventricle_is_normal++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">dilatedleftventricle</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>left ventricle is normal </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_dilatedleftventricle_left_ventricle_is_normal %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 09 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].takingmelatoninandconenzymeq10afterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_takingmelatoninandcoenzymeq10afterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">takingmelatoninandconenzymeq10afterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_takingmelatoninandcoenzymeq10afterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 09 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].takingmelatoninandconenzymeq10afterdiagnosis.localeCompare("taking_coenzyme_Q10_melatonin_supplements") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_takingmelatoninandcoenzymeq10afterdiagnosis_taking_coenzyme_Q10_melatonin_supplements++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">takingmelatoninandconenzymeq10afterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> taking coenzyme Q10 after diagnosis </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_takingmelatoninandcoenzymeq10afterdiagnosis_taking_coenzyme_Q10_melatonin_supplements %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 09 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].takingmelatoninandconenzymeq10afterdiagnosis.localeCompare("not_taking_supplements") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_takingmelatoninandcoenzymeq10afterdiagnosis_not_taking_supplements++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">takingmelatoninandconenzymeq10afterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> not taking supplements after diagnosis </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_takingmelatoninandcoenzymeq10afterdiagnosis_not_taking_supplements %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 10 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].nolongerdrivingafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_nolongerdrivingafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">nolongerdrivingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> dont know </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_nolongerdrivingafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+            
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 10 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].nolongerdrivingafterdiagnosis.localeCompare("not_driving") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_nolongerdrivingafterdiagnosis_not_driving++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">nolongerdrivingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> not driving </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_nolongerdrivingafterdiagnosis_not_driving %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 10 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].nolongerdrivingafterdiagnosis.localeCompare("still_driving") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_nolongerdrivingafterdiagnosis_still_driving++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">nolongerdrivingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> still driving </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_nolongerdrivingafterdiagnosis_still_driving %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 11 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].nolongergoingoutsideafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_nolongergoingoutsideafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <table border="1">
+                    <tr><td width="200px">
+                        <div style="float: left; width: 80%; ">
+                            <span class="label success">nolongergoingoutsideafterdiagnosis</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <label> dont know </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="float: left; width: 80%; ">
+                            <span class="label info"><%=  count_nolongergoingoutsideafterdiagnosis_dont_know %></span><br>
+                        </div>
+        
+                    </td></tr>
+                
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 11 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].nolongergoingoutsideafterdiagnosis.localeCompare("no_longer_going_outside") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_nolongergoingoutsideafterdiagnosis_no_longer_going_outside++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">nolongergoingoutsideafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> no longer going outside </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_nolongergoingoutsideafterdiagnosis_no_longer_going_outside %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 11 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].nolongergoingoutsideafterdiagnosis.localeCompare("still_going_outside") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_nolongergoingoutsideafterdiagnosis_still_going_outside++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">nolongergoingoutsideafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> still going outside </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_nolongergoingoutsideafterdiagnosis_still_going_outside %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 12 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].stillusingacatheterbagafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_stillusingacatheterbagafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">still using a catheter bag after six months</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> dont know </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_stillusingacatheterbagafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 12 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].stillusingacatheterbagafterdiagnosis.localeCompare("still_using_catheter_bag") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_stillusingacatheterbagafterdiagnosis_still_using_catheter_bag++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">still using a catheter bag after six months</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label> still using a catheter bag  </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_stillusingacatheterbagafterdiagnosis_still_using_catheter_bag %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 12 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].stillusingacatheterbagafterdiagnosis.localeCompare("not_using_a_catheter_bag") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_stillusingacatheterbagafterdiagnosis_not_using_a_catheter_bag++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 80%; ">
+                        <span class="label success">still using a catheter bag after six months</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>not using a catheter bag  </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_stillusingacatheterbagafterdiagnosis_not_using_a_catheter_bag %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 13 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know  </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+        
+
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 13 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis.localeCompare("told_1_year_to_live") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_1_year_to_live++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>told one year to live   </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_1_year_to_live %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p> 
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 13 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis.localeCompare("told_2_years_to_live") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_2_years_to_live++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>told 2 years to live   </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_2_years_to_live %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 13 - D  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis.localeCompare("told_3_years_to_live") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_3_years_to_live++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>told 3 years to live    </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_3_years_to_live %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 13 - E  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis.localeCompare("told_4_years_to_live") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_4_years_to_live++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>told 4 years to live    </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_4_years_to_live %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+             
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 13 - F  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis.localeCompare("told_5_years_to_live") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_5_years_to_live++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>told 5 years to live    </label> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis_told_5_years_to_live %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+              
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("dont_know ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+           
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("still_in_1st_year ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_still_in_1st_year++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>still in 1st year&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_still_in_1st_year %></span><br>
+                    </div>
+    
+                </td></tr>
+           
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("lived_at_least_1_year_more ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_1_year_more++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>lived at least one year more&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_1_year_more %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - D  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("lived_at_least_2_years_more  ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_2_years_more++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>lived at least 2 years more&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_2_years_more %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - E  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("lived_at_least_3_years_more  ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_3_years_more++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>lived at least 3 years more&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_3_years_more %></span><br>
+                    </div>
+    
+                </td></tr>
+        
+              
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - E  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("lived_at_least_4_years_more  ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_4_years_more++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>lived at least 4 years more&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_4_years_more %></span><br>
+                    </div>
+    
+                </td></tr>
+           
+               
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 14 - F  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].extratimethepatienthaslivedafterdiagnosis.localeCompare("lived_at_least_5_years_more  ") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_5_years_more++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">extratimethepatienthaslivedafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>lived at least 5 years more&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_extratimethepatienthaslivedafterdiagnosis_lived_at_least_5_years_more %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 15 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patienthaspurplefeetwhenstandingafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patienthaspurplefeetwhenstandingafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patienthaspurplefeetwhenstandingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patienthaspurplefeetwhenstandingafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+               
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 15 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patienthaspurplefeetwhenstandingafterdiagnosis.localeCompare("patient_has_purple_feet_when_standing") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patienthaspurplefeetwhenstandingafterdiagnosis_patient_has_purple_feet_when_standing++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patienthaspurplefeetwhenstandingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient has purple feet and legs when standing&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patienthaspurplefeetwhenstandingafterdiagnosis_patient_has_purple_feet_when_standing %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+               
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 15 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patienthaspurplefeetwhenstandingafterdiagnosis.localeCompare("patient_has_legs_and_feet_look_normal") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patienthaspurplefeetwhenstandingafterdiagnosis_patient_has_legs_and_feet_look_normal++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patienthaspurplefeetwhenstandingafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient has normal legs and feet&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patienthaspurplefeetwhenstandingafterdiagnosis_patient_has_legs_and_feet_look_normal %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 16 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientseeswolveschasinghimindreamsafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientseeswolveschasinghimindreamsafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientseeswolveschasinghimindreamsafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientseeswolveschasinghimindreamsafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 16 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientseeswolveschasinghimindreamsafterdiagnosis.localeCompare("patient_sees_wolves_chasing_them_in_dreams_each_night") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientseeswolveschasinghimindreamsafterdiagnosis_patient_sees_wolves_chasing_them_in_dreams_each_night++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientseeswolveschasinghimindreamsafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient_sees_wolves_chasing_them_in_dreams_each_night&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientseeswolveschasinghimindreamsafterdiagnosis_patient_sees_wolves_chasing_them_in_dreams_each_night %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 16 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patientseeswolveschasinghimindreamsafterdiagnosis.localeCompare("patient_sees_nothing_distressing_in_dreams_each_night") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patientseeswolveschasinghimindreamsafterdiagnosis_patient_sees_nothing_distressing_in_dreams_each_night++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patientseeswolveschasinghimindreamsafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient_sees_nothing_distressing_in_dreams_each_night &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patientseeswolveschasinghimindreamsafterdiagnosis_patient_sees_nothing_distressing_in_dreams_each_night %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 17 - A  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patienthasstoppedlivingtheirlifeafterdiagnosis.localeCompare("dont_know") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patienthasstoppedlivingtheirlifeafterdiagnosis_dont_know++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+            <table border="1">
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patienthasstoppedlivingtheirlifeafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>dont know &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patienthasstoppedlivingtheirlifeafterdiagnosis_dont_know %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+           
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 17 - B  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patienthasstoppedlivingtheirlifeafterdiagnosis.localeCompare("patient_stopped_living_their_life") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patienthasstoppedlivingtheirlifeafterdiagnosis_patient_stopped_living_their_life++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patienthasstoppedlivingtheirlifeafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient has stopped living their life  &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patienthasstoppedlivingtheirlifeafterdiagnosis_patient_stopped_living_their_life %></span><br>
+                    </div>
+    
+                </td></tr>
+            
+                
+            <% } %>
+            </p>
+        <!-- ------------------------------------------------------------------------> 
+        <!-- 17 - C  -->
+        <!--  compare activities after diagnosis to Walking -->
+        <% if( title[i].patienthasstoppedlivingtheirlifeafterdiagnosis.localeCompare("patient_living_a_normal_life") == 0 ){
+            <!--  increment activitiesafterdiagnosis_walking by one -->
+            count_patienthasstoppedlivingtheirlifeafterdiagnosis_patient_living_a_normal_life++
+        } %>
+        <p> 
+            <% if( count_entries == title.length ){ %>
+                <tr><td width="200px">
+                    <div style="float: left; width: 70%; ">
+                        <span class="label success">patienthasstoppedlivingtheirlifeafterdiagnosis</span>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <label>patient living a normal life  &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </td>
+                <td>
+                    <div style="float: left; width: 80%; ">
+                        <span class="label info"><%=  count_patienthasstoppedlivingtheirlifeafterdiagnosis_patient_living_a_normal_life %></span><br>
+                    </div>
+    
+                </td></tr>
+            </table>
+  
+            <% } %>
+            </p>
+
+        
+        <!-- <h1><%=  title[i] %></h1> -->
+        <% if( i == title.length ){ %>
+            <!--<h1>
+                <%=  title[i].activitiesafterdiagnosis %>
+            </h1> -->
+        <% } %>
+
+    <% } %>
+    
+    <!-- <p>Welcome to <%= title %></p>  -->
+  </body>
+</html>

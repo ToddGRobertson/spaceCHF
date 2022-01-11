@@ -1,0 +1,108 @@
+<head>
+  <script>
+    function mylogout(user_id) {
+            //  '/' moves routing back up one level to root
+                location.href='/' + 'logout/user_id';
+    }
+    function blinker()
+      {
+      $('.blink_me').fadeOut(500);
+      $('.blink_me').fadeIn(500);
+      }
+      setInterval(blinker,5000);
+  </script>
+  <style type="text/css">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    <!--
+    /* @group Blink */
+    .blink {
+     -webkit-animation: blink .75s linear infinite;
+     -moz-animation: blink .75s linear infinite;
+     -ms-animation: blink .75s linear infinite;
+     -o-animation: blink .75s linear infinite;
+     animation: blink .75s linear infinite;
+    }
+    @-webkit-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-moz-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-ms-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @-o-keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    @keyframes blink {
+     0% { opacity: 1; }
+     50% { opacity: 1; }
+     50.01% { opacity: 0; }
+     100% { opacity: 0; }
+    }
+    /* @end */
+    
+    </style>
+</head>
+
+<main>
+  <div class="jumbotron">
+    <p>questions - trobert612t@netscape.net - coursera node.js student</p>
+    
+        <div class="sidenav">
+            <div class="login-main-text">
+               <h2>Please log in or sign up as new user to continue.</h2
+               <p>Please use <u>Chrome/Google Browser</u> - site was designed on it</p>
+            </div>
+         </div>
+         <div class="main">
+            <div class="col-md-6 col-sm-12">
+               <div class="login-form">
+
+                <form action="/login" method="GET">  
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="email" name="email" id="email">
+                     </div>
+                     <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                     </div>
+                     <input type="submit" value="Login">
+                     <hr>
+                    <p><a href="/register_user"> New User</a></p>
+                    <p><a href="/sendmypassword"> Forgot my Password</a></p>
+                </form> 
+    
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

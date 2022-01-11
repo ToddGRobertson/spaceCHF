@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>supportgroupheartdisease</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	$( function() {
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	} );
+	</script>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+      a.border {
+        border-style: solid;
+        border-color: rgb(255, 0, 0);
+        background-color: yellow; 
+        border-width: 5px;
+        }
+    </style>
+    
+
+  </head>
+  <body>
+    <script>
+      function myredirect() {
+        location.href='http://localhost:3000/index2.html';
+      }
+      function enternewheartdataposts() {
+        location.href='http://localhost:3000/HFheartdataposts.html';
+      }
+      function myFunction_II() {
+                location.href='http://localhost:3000/HFheartdataposts';
+      }
+      function mymenu() {
+                location.href='http://localhost:3000/menu.html';
+      }
+      function myhideTextArea(myDIV){
+        var x = document.getElementById(myDIV);
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+      </script>
+    <input type="text" id="myInput" onkeyup="myFunction(); highlight(value) " placeholder="Search for names.." title="Type in a name">
+
+    <button onclick="myredirect()">go to home - heart data</button>
+    <button onclick="enternewheartdataposts()">enter new post - heart failure</button>
+    <button onclick="myFunction_II()">replys and comments(unfiltered) - heart forum</button>
+    <button onclick="mymenu()">go to menu</button>
+    <p>there are <%= title.length %> comments</p>
+    <p>scroll to the bottom to see your comment</p>
+    <%  count_entries = 0 %>
+    <ul id="myUL">
+      <% for (var i = 0; i < title.length ; i++) { %>
+        <% count_entries++  %>
+        <%= console.log("HFheartdatapostsfilterRouter.ejs - get - title[].author -> " + title[i].author ); %>
+        <%= console.log("HFheartdatapostsfilterRouter.ejs - get - title[].datepicker -> " + title[i].datepicker ); %>
+        <%= console.log("HFheartdatapostsfilterRouter.ejs - get - title[].replys_subject -> " + title[i].replys_subject ); %>
+        <li><a href="#"><%=  title[i].author %></a></li>
+        <li><a href="#"><%=  title[i].datepicker %></a></li>
+        <li><a href="#"><%=  title[i].replys_subject %></a></li><hr>
+        <li><a href="#"><%=  title[i].replys %></a></li><hr>
+            <!-- -->
+            <!-- //does something similar to extraction, just wanted to see it -->
+            <!--<% var string = '{"key1": "value", "key2": "value1", "Key3": [{"key31":"value 31"}] ,"__v":1}'; %> //{"key31":"value 31"}  {"key1": "value", "key2": "value1", "Key3": [{"key31":"value 31"}] ,"__v":1}-->
+            <% var string = '{"key1": "value", "key2": "value1", "Key3": [{"key31":"value 31"}] ,"__v":1}'; %> <!--//{"key31":"value 31"}  {"key1": "value", "key2": "value1", "Key3": [{"key31":"value 31"}] ,"__v":1}-->
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 75 - JSON Parse(string) -> " + JSON.stringify( JSON.parse(string) ) ); %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 76 - string -> " + string ); %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 77 - title[] -> " + JSON.stringify( title[i] )); %>
+            <% var new_string = ''; %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 79 - new_string -> " + new_string ); %>
+            <% new_string =  title[i] ; %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 81 - new_string after assignment-> " + JSON.stringify( new_string )); %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 82 - title[].comments -> " + JSON.stringify( title[i].comments )); %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 83 - title[].comments.author -> " + JSON.stringify( title[i].comments.author )); %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 84 - title[].comments.datepicker -> " + JSON.stringify( title[i].comments.datepicker )); %>
+            <%= console.log("HFheartdatapostsfilterRouter.ejs - get - 85 -  title[].comments.length -> " + JSON.stringify( title[i].comments.length )); %>
+            <!--  title[i].comments.length is length of array of comments -->
+            <% for (var j = 0; j < title[i].comments.length ; j++) { %>
+              <li><a href="#">====><%=  title[i].comments[j].author  %></a></li>
+              <a href="#">====><%=  title[i].comments[j].datepicker  %></a>
+              <a href="#">====><%=  title[i].comments[j].comment  %></a>
+              
+              
+
+            <% } %>
+            </li>  <!-- ends the group above -->
+            <div hidden id="<%= title[i]._id %>">
+              <!-- This is my <%= title[i]._id %> element. -->
+              <form action="HFheartdatapostscomments/<%= title[i]._id %>" method="POST">
+              <table border="1">
+                <tr><td>
+                  <label for="fname">author :</label>
+                  <input id="replys_author<%= i %>" name="replys_author" size="100">
+                  <!-- script must be after input for some reason-->
+                  <script>
+                    console.log("HFheartdataposts.html - session storage.getitem 53 -> " + sessionStorage.getItem('username'));
+                    document.getElementById('replys_author<%= i %>').value = sessionStorage.getItem('username');
+                </script>
+              </td></tr>
+              <tr><td>
+                  <label for="fname">date :</label>
+                    
+                  <input  id="datepicker" name="datepicker"> <!--type="text"-->
+              </td></tr>
+              <tr><td>
+              <textarea id="comment" name="comment" rows="12" cols ="100"></textarea>
+              </td></tr>
+              <tr><td>
+                <button onclick="myhideTextArea('<%= title[i]._id %>')">post comment</button>
+              </td></tr>
+              </table>
+              </form>
+            </div><button onclick="myhideTextArea('<%= title[i]._id %>')">click twice to display textarea</button></li>
+            
+             <!--<button onclick="myredirect( '<%=title[i]._id %>' )">use keyword search - heart data</button></li> -->
+
+      <% } %>
+      </ul>
+    
+
+    <script>
+      
+      function myFunction() {
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById("myInput");
+          console.log("myfunction - input -> " + JSON.stringify(input) );
+          filter = input.value.toUpperCase();
+          console.log("myfunction - filter -> " + filter );
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName("li");
+          console.log("myfunction - li.length -> " + li.length );
+          for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              console.log("myfunction - a -> " + a );
+              txtValue = a.textContent || a.innerText;
+              console.log("myfunction - txtValue -> " + txtValue );
+              
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+              } else {
+                  li[i].style.display = "none";
+              }
+              
+              
+          }
+          
+      }
+
+      // for input box to highlight text typed in
+      function highlight(text) {
+        var inputText = document.getElementById("myUL");
+        console.log("********************************************************text ==> " + JSON.stringify( text ) );
+        //console.log("********************************************************inputText ==> " + JSON.stringify( inputText ) );
+        
+        var innerHTML = inputText.innerHTML;
+        //console.log("********************************************************innerHTML ==> " + JSON.stringify( innerHTML ) );
+        var index = innerHTML.indexOf(text);
+        console.log("********************************************************index ==> " + index );
+        if (index >= 0) { 
+        console.log("********************************************************innerHTML.substring(index,index+text.length) ==> " + innerHTML.substring(index,index+text.length) );
+        console.log("********************************************************text.length  ==> " + text.length );
+        if( text.length >= 5){  // dont sumbit innerHTMl until 5 characters are typed in
+          innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+          inputText.innerHTML = innerHTML;
+        }
+        
+        console.log("********************************************************InputText.innerHTML ==> " + JSON.stringify( InputText.innerHTML ) );
+        }
+      }
+      </script>
+      
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<html>
+    <title>supportgroupheartdisease</title>
+    <button onclick="myFunction()">Display accumulated questionnaire data </button>
+    <!--
+    <button onclick="gotoheartdataposts()">Post to Form - heart data</button>
+    -->
+    <script>
+    function myFunction() {
+        location.href='HFhelloworld';
+    }
+    function gotoheartdataposts() {
+        location.href='HFheartdataposts.html';
+      }
+    </script>
+    <body>
+        <h1>questionnaire.html</h1>
+        <p> Please make a selection from <u>all</u> 17 questions below about your or your loved ones' experience with heart failure and then click submit on the bottom</p>
+        <p>Please select your patient's experiences or your perception of their experience with heart failure</p>
+        <form action="/HFheartdatas" method="GET">  
+            
+            <table border="1">
+                <tr><td>
+                    01)<label for="activitiesafterdiagnosis">Activities after diagnosis:
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </td>
+                <td>
+                    <select name="activitiesafterdiagnosis" id="activitiesafterdiagnosis">
+                      <option value="dont_know">don't know</option> 
+                      <option value="Walking">Walking</option>
+                      <option value="Swimming">Swimming</option>
+                      <option value="Dancing">Dancing</option>
+                      <option value="Walking_in_home">Walking in home</option>
+                      <option value="Get_Winded_Just_Walking_Around">Get Winded Just Walking Around</option>
+                      <option value="Bedridden">Bedridden</option>
+                      
+                    </select> 
+                </td></tr>
+
+                <tr><td>
+                    <br>02)<label for="fname">Time sleeping daily after diagnosis (hrs)
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  </label>
+                </td>
+                <td>
+                    <select name="amountoftimesleepingafterdiagnosis" id="amountoftimesleepingafterdiagnosis">
+                      <option value="dont_know">don't know</option>
+                      <option value="2">2</option>
+                      <option value="4">4</option>
+                      <option value="6">6</option>
+                      <option value="8">8</option>
+                      <option value="10">10</option>
+                      <option value="12">12</option>
+                      <option value="wants_to_sleep_all_day">wants to sleep all day</option>             
+                    </select> 
+        
+                </td></tr>
+                <tr><td>
+
+                    <br>03)<label for="fname">Patient stopping living after diagnosis
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;            </label>
+                    
+                    </td>
+                    <td>
+
+
+                    
+                    <select name="patientstoppedlivinglifeafterdiagnosis" id="patientstoppedlivinglifeafterdiagnosis">
+                      <option value="dont_know">dont know</option>
+                      <option value="patient_stopped_living_life">patient stopped living life</option>
+                      <option value="patient_living_normally">patient living normally</option>             
+                    </select>
+        
+                </td></tr>
+                <tr><td>
+                    <br>04)<label for="fname">depression after diagnosis
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                    </label>
+                    </td>
+                    <td>
+        
+                    <select name="depressionafterdiagnosis" id="depressionafterdiagnosis">
+                        <option value="dont_know">don't know</option> 
+                        <option value="depressed_after_diagnosis">depressed after diagnosis</option>
+                        <option value="not_depressed_after_diagnosis">not depressed after diagnosis</option> 
+                                    
+                    </select>
+        
+                </td></tr>
+                <tr><td>
+                    <br>05)<label for="fname">seeing family and friend after diagnosis
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    </label>
+                    </td>
+                    <td>
+        
+                    <select name="seeingfamilyandfriendsafterdiagnosis" id="seeingfamilyandfriendsafterdiagnosis">
+                        <option value="dont_know">don't know</option>  
+                        <option value="seeing_family_and_friends_after_diagnosis">seeing family and friends after diagnosis</option>
+                        <option value="not_seeing_family_and_friends_after_diagnosis">not seeing family and friends after diagnosis</option>  
+                                   
+                    </select>
+        
+                </td></tr>
+                <tr><td>
+                    <br>06)<label for="fname">Bedridden after diagnosis</label>
+                </td>
+                <td>
+
+            <select name="bedriddenafterdiagnosis" id="bedriddenafterdiagnosis">
+                <option value="dont_know">don't know</option> 
+                <option value="patient_is_bedridden">patient is bedridden</option>
+                <option value="patient_moves_around_ok">patient moves around ok</option> 
+                             
+            </select>
+
+
+                </td></tr>
+                <tr><td>
+                    <br>07)<label for="fname">Using walker/cane/wheelchair after diagnosis</label>
+
+                </td>
+                <td>
+
+            <select name="usingwalkercanewheelchairafterdiagnosis" id="usingwalkercanewheelchairafterdiagnosis">
+                <option value="dont_know">don't know</option> 
+                <option value="patient_uses_a_walker">patient uses a walker</option>
+                <option value="patient_uses_a_cane">patient uses a cane</option> 
+                <option value="patient_uses_a_wheelchair">patient uses a Wheelchair</option> 
+                <option value="patient_is_bedridden">patient is bedridden</option> 
+                        
+            </select>
+            </td></tr>
+
+            <tr><td>
+            <br>08)<label for="fname">dilated left ventricle</label>
+
+            </td>
+            <td>
+            <select name="dilatedleftventricle" id="dilatedleftventricle">
+                <option value="dont_know">don't know</option> 
+                <option value="left_ventricle_is_dilated">left ventricle is dilated(weaker)</option>
+                <option value="left_ventricle_is_normal">left ventricle is normal</option> 
+                       
+            </select>
+
+            </td></tr>
+            <tr><td>
+
+            
+
+            <br>09)<label for="fname">taking coenzyme q10 and melatonin for heart issues</label>
+
+            </td>
+            <td>
+            <select name="takingmelatoninandconenzymeq10afterdiagnosis" id="takingmelatoninandconenzymeq10afterdiagnosis">
+                <option value="dont_know">don't know</option>  
+                <option value="taking_coenzyme_Q10_melatonin_supplements">taking coenzyme Q10/melatonin supplements</option>
+                <option value="not_taking_supplements">not taking supplements</option> 
+                       
+            </select>
+
+            </td></tr>
+            <tr><td>
+
+            
+            <br>10)<label for="fname">no longer driving after diagnosis</label>
+
+            </td>
+            <td>
+
+            <select name="nolongerdrivingafterdiagnosis" id="nolongerdrivingafterdiagnosis">
+                <option value="dont_know">don't know</option> 
+                <option value="not_driving">not driving</option>
+                <option value="still_driving">still driving</option> 
+                       
+            </select>
+            
+            </td></tr>
+            <tr><td>
+
+            
+            <br>11)<label for="fname">no longer going outside after diagnosis</label>
+
+            </td>
+            <td>
+
+            <select name="nolongergoingoutsideafterdiagnosis" id="nolongergoingoutsideafterdiagnosis">
+                <option value="dont_know">don't know</option> 
+                <option value="no_longer_going_outside">no longer going outside</option>
+                <option value="still_going_outside">still going outside</option> 
+                        
+            </select>
+
+            </td></tr>
+            <tr><td>
+
+            <br>12)<label for="fname">still using a catheter bag</label>
+
+            </td>
+            <td>
+
+            <select name="stillusingacatheterbagafterdiagnosis" id="stillusingacatheterbagafterdiagnosis">
+                <option value="dont_know">don't know</option> 
+                <option value="still_using_catheter_bag">still using catheter bag</option>
+                <option value="not_using_a_catheter_bag">not using a catheter bag</option> 
+                        
+            </select>
+
+            </td></tr>
+            <tr><td>
+
+            
+
+            <br>13)<label for="fname">patient was told they had how much time to live?</label>
+
+            </td>
+            <td>
+                
+            <select name="patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis" id="patientwastoldtheyhadhowmuchtimetoliveafterdiagnosis">
+                <option value="dont know">dont_know</option> 
+                <option value="1">told_1_year_to_live</option>
+                <option value="2">told_2_years_to_live</option>
+                <option value="3">told_3_years_to_live</option>
+                <option value="4">told_4_years_to_live</option>
+                <option value="5">told_5_years_to_live</option>
+                        
+            </select>
+
+            </td></tr>
+            <tr><td>
+
+            
+
+            <br>14)<label for="fname">how much extra time patient has lived since initial diagnosis?</label>
+
+            </td>
+            <td>
+
+            <select name="extratimethepatienthaslivedafterdiagnosis" id="extratimethepatienthaslivedafterdiagnosis">
+                <option value="dont know">dont_know</option> 
+                <option value="0">still_in_1st_year</option>
+                <option value="1">lived_at_least_1_year_more</option>
+                <option value="2">lived_at_least_2_years_more</option>
+                <option value="3">lived_at_least_3_years_more</option>
+                <option value="4">lived_at_least_4_years_more</option>
+                <option value="5">lived_at_least_5_years_more</option>
+                       
+            </select>  
+
+            </td></tr>
+            <tr><td>
+
+            
+            
+            <br>15)<label for="fname">patient had purple feet when standing diagnosis?</label>
+
+            </td>
+            <td>
+
+            <select name="patienthaspurplefeetwhenstandingafterdiagnosis" id="patienthaspurplefeetwhenstandingafterdiagnosis">
+                <option value="dont_know">don't know</option>
+                <option value="patient_has_purple_feet_when_standing">patient has purple feet and legs when standing</option>
+                <option value="patient_has_legs_and_feet_look_normal">patients legs and feet look normal</option>
+                        
+            </select> 
+           
+            </td></tr> 
+            <tr><td>
+
+            
+
+            <br>16)<label for="fname">patient sees wolves chasing him in dreams after diagnosis?</label>
+
+            </td>
+            <td>
+
+            <select name="patientseeswolveschasinghimindreamsafterdiagnosis" id="patientseeswolveschasinghimindreamsafterdiagnosis">
+                <option value="dont_know">don't know</option> 
+                <option value="patient_sees_wolves_chasing_them_in_dreams_each_night">patient sees wolves chasing them in dreams each night</option>
+                <option value="patient_sees_nothing_distressing_in_dreams_each_night">patient sees nothing distressing in dreams each night</option>
+                       
+            </select> 
+
+            </td></tr>
+            <tr><td>
+
+            
+            
+            <br>17)<label for="fname">patient has stopped living their life after diagnosis?</label>
+
+            </td>
+            <td>
+
+            <select name="patienthasstoppedlivingtheirlifeafterdiagnosis" id="patienthasstoppedlivingtheirlifeafterdiagnosis">
+                <option value="dont_know">don't know</option>  
+                <option value="patient_stopped_living_their_life">patient stopped living their life</option>
+                <option value="patient_living_a_normal_life">patient living a normal life</option>
+                       
+            </select><br>
+       
+                </td></tr>
+                <tr><td>
+                    
+                </td>
+                <td>
+                    <input type="submit" value="Submit">
+                </td></tr>
+            </table>
+            
+            
+            
+        </form> 
+    </body>
+</html>

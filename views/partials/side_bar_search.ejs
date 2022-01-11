@@ -1,0 +1,389 @@
+<head>
+  <style>
+    img.b {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      padding: 5px;
+      border: 1px solid blue;    
+      background-color: yellow; 
+    }
+  </style>
+  <script>
+  function mymessage1() {
+    //  USE "/" IN FRONT TO GET TO HOME ROUTE OTHERWISE THE ROUTE IS NESTED
+            location.href  ='/' + 'menu.html';
+  }
+</script>
+</head>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <div class="container">
+    <div class="col w-60">
+      <a class="navbar-brand" href="#">spaceCHF - <br>congestive heart failure</a>
+      <div >
+        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/myprofilehome/<%= the_user_id %>">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/myprofilesearchpage1/<%= the_user_id %>">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/messages/<%=the_user_id%>">Messages</a>
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                myprofile
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/myprofile/<%=the_user_id%>">Your profile</a></li>
+                <li><a class="dropdown-item" href="/myprofilephoto/<%=the_user_id%>">Upload your photo</a></li>
+                <li><a class="dropdown-item" href="/myprofilecityandstate/<%=the_user_id%>">Edit City and State</a></li>
+                <li><a class="dropdown-item" href="/myprofilepatientorcaregiver/<%=the_user_id%>">Edit patient or caregiver</a></li>
+                <li><a class="dropdown-item" href="/myprofilebriefdescription/<%=the_user_id%>">Edit brief description</a></li>
+                <li><a class="dropdown-item" href="/myprofiledetaileddescription/<%=the_user_id%>">Edit detailed description</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/forums">Forums</a>
+            </li>          
+          </ul>
+  
+        <!--</div>-->
+      </div> <!-- <div class="jumbotron"> -->
+    </div>  <!-- <div class="col-sm-2"> -->
+  
+    <div class="col-sm-10">
+      <div class="w3-container w3-teal">
+        <h1>myprofile search (the_data_of_users.length -> <%= the_data_of_users.length %></h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+    
+       <div class="main">
+         <!--  col-md-12 displays four images on medium screen-->
+          <div class="col-md-12 col-sm-12">
+            
+              <% for (let i = 0; i < the_data_of_users.length; i=i+4) {  %>
+              <!-- start at i=1 -> photo 1  for 2 users this shows 2 users-->
+              <div > <!-- <div class="form-group"> -->
+                  <div class="container-fluid">  <!-- <div class="container">-->
+                      <div class="row">
+                        <div class="col">  <!-- <div class="col-sm">-->
+                          <!-- 
+                          <p><%= i %></p>
+                          <p><%= the_data_of_users.length %></p>  -->
+                          <% if( i < the_data_of_users.length ){ %>
+                            <!-- form group adds padding to display -->
+                          <div>  <!-- <div class="form-group">-->
+                          <!-- img class b helps keep images inline -->
+                          <a href="#"><img class="b" src="../<%= the_data_of_users[i].image %>" alt="Girl in a jacket3" ></a>                        </div>
+                          <table border="1">
+                            <tr>
+                            <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i].patient_or_caregiver %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i].illness %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i].city %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"> <input  type="text" class="form-control"  value="<%= the_data_of_users[i].state %>"></td>
+                            </tr>
+                          </table>
+                          <% } %>
+                        </div> <!-- <div class="col-sm">-->
+                        <div class="col">  <!-- <div class="col-sm"> -->
+                          <div>  <!-- <div class="form-group">-->
+                            <a href="#"><img  class="b" src="../<%= the_data_of_users[i+1].image %>" alt="Girl in a jacket3" > </a>
+                          </div>
+                          <% if( (i+1) < the_data_of_users.length ){ %>
+                            <table border="1">
+                              <tr>
+                                <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+1].patient_or_caregiver %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+1].illness %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+1].city %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"> <input  type="text" class="form-control"  value="<%= the_data_of_users[i+1].state %>"></td>
+                              </tr>
+                            </table>
+                          <% } %>
+                        </div>  <!-- <div class="col-sm"> -->
+                        <div class="col"> <!-- <div class="col-sm">-->
+                          <% if( (i+2) < the_data_of_users.length ){ %>
+                            <!--
+                            <p><%= i+1 %></p>
+                            <p><%= the_data_of_users.length %></p>
+                            -->
+                            <div>  <!-- <div class="form-group">-->
+                              
+                              <a href="#"><img class="b" src="../<%= the_data_of_users[i+2].image %>" alt="Girl in a jacket3" ></a>
+                              
+                            </div>
+                            <table border="1">
+                              <tr>
+                                <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+2].patient_or_caregiver %>"></td>
+                              </tr>
+                              <tr></tr>
+                                <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+2].illness %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+2].city %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+2].state %>"></td>
+                              </tr>
+                            </table>
+                            <% } %>
+                        </div>  <!-- <div class="col-sm"> -->
+                        <div class="col"> <!-- <div class="col-sm">-->
+                          <% if( (i+3) < the_data_of_users.length ){ %>
+                            <!--
+                            <p><%= i+1 %></p>
+                            <p><%= the_data_of_users.length %></p>
+                            -->
+                            <div >  <!--  <div>  <!-- <div class="form-group">-->
+                              
+                              <a href="#"><img class="b" src="../<%= the_data_of_users[i+3].image %>" alt="Girl in a jacket3" ></a>
+                              
+                            </div>
+                            <table border="1">
+                              <tr>
+                                <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+3].patient_or_caregiver %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+3].illness %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+3].city %>"></td>
+                              </tr>
+                              <tr>
+                                <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+3].state %>"></td>
+                              </tr>
+                            </table>
+                            <% } %>
+                        </div>  <!-- <div class="col"> -->
+                      </div>   <!-- <div class="row"> -->      
+                      <div class="row">
+                        <!---------------------------------------------------------------------------------------->
+                        <!--  row 2  -->
+                        <div class="col">  <!-- <div class="col-sm">-->
+                          <!-- 
+                          <p><%= i %></p>
+                          <p><%= the_data_of_users.length %></p>  -->
+                          <% if( (i+4) < the_data_of_users.length ){ %>
+                            <!-- form group adds padding to display -->
+                          <div>  <!-- <div class="form-group">-->
+                            <!-- img class b helps keep images inline -->
+                            <a href="#"><img class="b" src="../<%= the_data_of_users[i+4].image %>" alt="Girl in a jacket3" ></a>                        </div>
+                          </div>
+                          <table border="1">
+                            <tr>
+                            <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+4].patient_or_caregiver %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+4].illness %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+4].city %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"> <input  type="text" class="form-control"  value="<%= the_data_of_users[i+4].state %>"></td>
+                            </tr>
+                          </table>
+                          <% } %>
+                      </div> <!-- <div class="col-sm">-->
+                      <div class="col">  <!-- <div class="col-sm"> -->
+                        <% if( (i+5) < the_data_of_users.length ){ %>
+                          <div>  <!-- <div class="form-group">-->
+                            <a href="#"><img  class="b" src="../<%= the_data_of_users[i+5].image %>" alt="Girl in a jacket3" > </a>
+                          </div>
+                          
+                          <table border="1">
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+5].patient_or_caregiver %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+5].illness %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+5].city %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"> <input  type="text" class="form-control"  value="<%= the_data_of_users[i+5].state %>"></td>
+                            </tr>
+                          </table>
+                        <% } %>
+                      </div>  <!-- <div class="col-sm"> -->
+                       <div class="col"> <!-- <div class="col-sm">-->
+                            <% if( (i+6) < the_data_of_users.length ){ %>
+                              <!--
+                              <p><%= i+1 %></p>
+                              <p><%= the_data_of_users.length %></p>
+                              -->
+                              <div>  <!-- <div class="form-group">-->
+                                <a href="#"><img class="b" src="../<%= the_data_of_users[i+6].image %>" alt="Girl in a jacket3" ></a>
+                              </div>
+                              <table border="1">
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+6].patient_or_caregiver %>"></td>
+                                </tr>
+                                <tr></tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+6].illness %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+6].city %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+6].state %>"></td>
+                                </tr>
+                              </table>
+                          <% } %>
+                      </div>  <!-- <div class="col-sm"> -->
+                      <div class="col"> <!-- <div class="col-sm">-->
+                            <% if( (i+7) < the_data_of_users.length ){ %>
+                              <!--
+                              <p><%= i+1 %></p>
+                              <p><%= the_data_of_users.length %></p>
+                              -->
+                              <div >  <!--  <div>  <!-- <div class="form-group">-->
+                                
+                                <a href="#"><img class="b" src="../<%= the_data_of_users[i+7].image %>" alt="Girl in a jacket3" ></a>
+                                
+                              </div>
+                              <table border="1">
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+7].patient_or_caregiver %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+7].illness %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+7].city %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+7].state %>"></td>
+                                </tr>
+                              </table>
+                            <% } %>
+                      </div>  <!-- <div class="col"> -->
+                      </div>  <!-- <div class="row" > -->
+                      <div class="row">
+                        <!---------------------------------------------------------------------------------------->
+                        <!--  row 2  -->
+                        <div class="col">  <!-- <div class="col-sm">-->
+                          <!-- 
+                          <p><%= i %></p>
+                          <p><%= the_data_of_users.length %></p>  -->
+                          <% if( (i+8) < the_data_of_users.length ){ %>
+                            <!-- form group adds padding to display -->
+                          <div>  <!-- <div class="form-group">-->
+                            <!-- img class b helps keep images inline -->
+                            <a href="#"><img class="b" src="../<%= the_data_of_users[i+8].image %>" alt="Girl in a jacket3" ></a>                        </div>
+                          </div>
+                          <table border="1">
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+8].patient_or_caregiver %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+8].illness %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+8].city %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control"  value="<%= the_data_of_users[i+8].state %>"></td>
+                            </tr>
+                          </table>
+                          <% } %>
+                      </div> <!-- <div class="col-sm">-->
+                      <div class="col">  <!-- <div class="col-sm"> -->
+                        <% if( (i+9) < the_data_of_users.length ){ %>
+                          <div>  <!-- <div class="form-group">-->
+                            <a href="#"><img  class="b" src="../<%= the_data_of_users[i+9].image %>" alt="Girl in a jacket3" > </a>
+                          </div>
+                          
+                          <table border="1">
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+9].patient_or_caregiver %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+9].illness %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+9].city %>"></td>
+                            </tr>
+                            <tr>
+                              <td width="130px"><input  type="text" class="form-control"  value="<%= the_data_of_users[i+9].state %>"></td>
+                            </tr>
+                          </table>
+                        <% } %>
+                      </div>  <!-- <div class="col-sm"> -->
+                        <div class="col"> <!-- <div class="col-sm">-->
+                            <% if( (i+10) < the_data_of_users.length ){ %>
+                              <!--
+                              <p><%= i+1 %></p>
+                              <p><%= the_data_of_users.length %></p>
+                              -->
+                              <div>  <!-- <div class="form-group">-->
+                                <a href="#"><img class="b" src="../<%= the_data_of_users[i+10].image %>" alt="Girl in a jacket3" ></a>
+                              </div>
+                              <table border="1">
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+10].patient_or_caregiver %>"></td>
+                                </tr>
+                                <tr></tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+10].illness %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+10].city %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"> <input  type="text" class="form-control" value="<%= the_data_of_users[i+10].state %>"></td>
+                                </tr>
+                              </table>
+                          <% } %>
+                      </div>  <!-- <div class="col-sm"> -->
+                      <div class="col"> <!-- <div class="col-sm">-->
+                            <% if( (i+11) < the_data_of_users.length ){ %>
+                              <!--
+                              <p><%= i+1 %></p>
+                              <p><%= the_data_of_users.length %></p>
+                              -->
+                              <div >  <!--  <div>  <!-- <div class="form-group">-->
+                                
+                                <a href="#"><img class="b" src="../<%= the_data_of_users[i+11].image %>" alt="Girl in a jacket3" ></a>
+                                
+                              </div>
+                              <table border="1">
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+11].patient_or_caregiver %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+11].illness %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+11].city %>"></td>
+                                </tr>
+                                <tr>
+                                  <td width="130px"><input  type="text" class="form-control" value="<%= the_data_of_users[i+11].state %>"></td>
+                                </tr>
+                              </table>
+                            <% } %>
+                      </div>  <!-- <div class="col"> -->
+                      </div>  <!-- <div class="row" > -->
+                  </div> <!-- class="container-fluid" -->
+              <% } %>    
+            </div> <!-- <div class="col-md-6 col-sm-12">-->
+            
+      </div>  <!-- <div class="main"> -->
+    </div>  
+  </div>   <!-- <div class="row">-->
+  </main>

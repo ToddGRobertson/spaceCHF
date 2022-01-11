@@ -1,0 +1,185 @@
+<head>
+  <style>
+    .div1 {
+      background-color: lightblue;
+    }
+    .div2 {
+      background-color: rgb(218, 230, 173);
+    }
+    .div3 {
+      background-color: rgb(230, 173, 178);
+    }
+    
+    .container {
+      position: relative;
+      text-align: center;
+      color: rgb(255, 255, 255);
+    }
+    .above-above-bottom-left {  /*  for name */
+      position: relative;
+      bottom: 90px;
+      left: -55px;
+    }
+    .above-bottom-left {     /* for patient caretaker */
+      position: relative;
+      bottom: 80px;
+      left: -50px;
+    }
+    
+    .above-bottom-right {    /* illness */
+      position: relative;
+      bottom: 130px;
+      right: -50px;
+    }
+    .bottom-left {   /* city */
+      position: relative;
+      bottom: 75px;
+      left: -50px;
+    }
+    .bottom-right {   /* state */
+      position: relative;
+      bottom: 120px;
+      right: -50px;
+    }
+
+
+    .black_dot {   /* offline  */
+      height: 30px;
+      width: 30px;
+      background-color: rgb(7, 10, 7);
+      border-radius: 50%;
+      display: inline-block;
+
+      position: relative;
+      bottom: 180px;
+      left: 20px;
+    }
+    .green_dot {    /* online */
+      height: 30px;
+      width: 30px;
+      background-color: rgb(9, 236, 46);
+      border-radius: 50%;
+      display: inline-block;
+
+      position: relative;
+      bottom: 180px;
+      left: 20px;
+      
+    }
+    img.b {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      /*padding: 5px; */
+      border: 1px solid blue;    
+      background-color: yellow; 
+
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      
+    }
+    .center {   /* border around previous, next */
+      margin: auto;
+      width: 10%;
+      /*border: 3px solid #73AD21;*/
+      padding: 10px;
+    }
+  </style>
+  <script>
+  function mymessage1() {
+    //  USE "/" IN FRONT TO GET TO HOME ROUTE OTHERWISE THE ROUTE IS NESTED
+            location.href  ='/' + 'menu.html';
+  }
+  function next(user_id) {
+    //  USE "/" IN FRONT TO GET TO HOME ROUTE OTHERWISE THE ROUTE IS NESTED
+            location.href  = '/' + 'myprofilesearchpage2/user_id';
+  }
+</script>
+</head>
+<main>
+  <div class="row">  
+    <div class="col-sm-6">
+        <!-- <h1>myprofile search (the_data_of_users.length -> <%= the_data_of_users.length %></h1>  -->
+        <div class="left">
+          <div >
+            <table border="1">
+              <tr>
+                <td>
+                  <a href="#"><span disabled style="font-size:30px">page 1</span></a>
+                </td>
+                <td>
+                  <a href="#"><span disabled style="font-size:30px">total users -> <%= the_data_of_users.length %></span></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#"><span disabled style="font-size:30px">previous</span></a>
+                </td>
+                <td>
+                  <a href="#"><span disabled style="font-size:30px"></span></a>
+                </td>
+                <td>
+                  <a href="/myprofilesearchpage2/<%= the_user_id %>"><span  style="font-size:30px">next</span></a>
+                </td>
+              </tr>
+            </table>
+          </div>  <!--<div >-->
+        </div>  <!-- <div class="left">-->
+  
+    <div class="col-sm-6">
+      <div class="w3-container"><!-- <div class="w3-container">-->
+        <h1>myprofile search (the_data_of_users.length -> <%= the_data_of_users.length %></h1>
+      </div> <!-- <div class="w3-container w3-teal"> -->
+        <p align="center">page 1</p>
+        
+       <div class="main">
+         <!--  col-md-12 displays four images on medium screen-->
+          <div class="col-md-12 col-sm-12">
+              <%= counter = 0 %>
+              
+              <!-- start at i=1 -> photo 1  for 2 users this shows 2 users-->
+              <div > <!-- <div class="form-group"> -->
+                  <div class="container-fluid">  <!-- <div class="container">-->
+                      <div class="row no-gutters">  <!-- no gutters closes space between images-->
+                        <% for (let i = 0; i < the_data_of_users.length; i=i+1) {  %> <!-- 20 profile displayed per page-->
+                        <div class="col-sm">  <!-- <div class="col-sm">-->
+                          <!-- 
+                          <p><%= i %></p>
+                          <p><%= the_data_of_users.length %></p>  -->
+                          <!-- <% if( i < the_data_of_users.length ){ %> -->
+                            <!-- form group adds padding to display -->
+                          <div  class="container div1">
+                            <!-- img class b helps keep images inline -->
+                            <!-- <a href="../theirprofile/user/<%=the_user_id%>/receiver/<%= the_data_of_users[i].user_id %>" ><img class="b" src="../<%= the_data_of_users[i].image %>" alt="Girl in a jacket3" ></a>   -->
+                            <a  href="../../myprofiletheirprofile/<%=the_user_id%>/<%= the_data_of_users[counter + i].user_id %>" >
+                            <img class="b" src="../<%= the_data_of_users[counter + i].image %>" alt="Girl in a jacket3" ></a>
+                            <!--<span class="above-above-bottom-left"><B><%= the_data_of_users[counter + i].username %></B></span>-->
+                            <div class="above-above-bottom-left"><B><%= the_data_of_users[counter + i].username %></B></div>
+                            <div class="above-bottom-left"><B><%= the_data_of_users[counter + i].patient_or_caregiver %></B></div>
+                            <div class="bottom-left"><B><%= the_data_of_users[counter + i].city %></B></div>
+                            <div class="above-bottom-right"><B><%= the_data_of_users[counter + i].illness %></B></div>
+                            <div class="bottom-right"><B><%= the_data_of_users[counter + i].state %></B></div>
+                            <!--<div align="center" class="div3" > -->
+                            <%= console.log(" 109 the_data_of_users[i].online " + the_data_of_users[counter + i].online ) %>
+                            <% if( the_data_of_users[counter + i].online === false )   { %>
+                              <div class="bottom-right" ><span class="black_dot"></span></div>
+                            <% }else{ %>
+                              <div class="bottom-right" ><span class="green_dot"></span></div>
+                            <% }    %>  
+                          </div>
+                          
+                          <!-- <% } %> -->
+                        </div> <!-- <div class="col-sm">-->
+                        <% } %> 
+                      </div>   <!-- <div class="row"> -->      
+                      
+                  </div> <!-- class="container-fluid" -->
+                 
+            </div> <!-- <div class="col-md-6 col-sm-12">-->
+            
+      </div>  <!-- <div class="main"> -->
+    </div>  
+  </div>   <!-- <div class="row">-->
+  </main>
