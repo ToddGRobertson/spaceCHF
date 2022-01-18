@@ -40,6 +40,52 @@ myprofiledeleteRouter.route('/')  //line 18 in index.js specifies dishRouter is 
 
 
                 // need to complete this if photo is of the unknown to delete the rest of the stuff
+                // remove data_of_user[0] entry
+                //data_of_user[0]._id
+                Data_of_users.findByIdAndDelete(data_of_user[0]._id, function (err, docs) {
+                    if (err){
+                        console.log(err)
+                    }
+                    else{
+                        console.log("Deleted data_of_users JSON entry : ", docs);
+                    }
+                });
+                // now remove the messages tables
+                console.log("myprofiledeleteRouter - 84 req.params.user_id : ", req.params.user_id );
+                Messages.find({'user_id' : req.params.user_id })  // from posts.js
+                .then( (message) => { //messages is in mongodb as a collection/database
+                    console.log("myprofiledeleteRouter - 87 message: ", message );
+                    console.log("myprofiledeleteRouter - 88 message[0]._id: ", message[0]._id );
+                    const message_id = message[0]._id;
+                    Messages.findByIdAndDelete( message_id, function (err, docs) {
+                        if (err){
+                            console.log(err)
+                        }
+                        else{
+                            console.log("myprofiledeleteRouter 97 Deleted messages JSON entry : ", docs);
+                            console.log("myprofiledeleteRouter 98 Deleted messages req.params.user_id : ", req.params.user_id);
+                            Users.find({'_id' : req.params.user_id })
+                            .then( (user) => { //messages is in mongodb as a collection/database
+                                
+                                console.log("myprofiledeleteRouter - 101 user[0]._id: ", user[0]._id );
+                                const user_id = user[0]._id;
+                                Users.findByIdAndDelete( user_id , function (err, docs) {
+                                    if (err){
+                                        console.log(err)
+                                    }
+                                    else{
+                                        console.log("Deleted 108 users JSON entry : ", docs);
+                                        res.render('../views/pages/index');
+                                    }
+                                });
+                            });
+                        }
+                    });
+                    // now get read to delete users
+
+
+                }, (err) => next(err) )
+                .catch( (err) => next(err) );
             }else{
                 //try to read the file
                 fs = require('fs');
@@ -107,6 +153,7 @@ myprofiledeleteRouter.route('/')  //line 18 in index.js specifies dishRouter is 
                                     }
                                     else{
                                         console.log("Deleted 108 users JSON entry : ", docs);
+                                        res.render('../views/pages/index');
                                     }
                                 });
                             });
