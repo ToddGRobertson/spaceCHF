@@ -168,7 +168,7 @@ myprofilemessageeditRouter.route('/')  //line 18 in index.js specifies dishRoute
                         console.log("myprofiledetaileddescriptioneditRouter 166 displayed data_of_users[0] : ", data_of_user[0]);
                         console.log("myprofiledetaileddescriptioneditRouter 167 displayed data_of_users[0]._id : ", data_of_user[0]._id);
                         console.log("myprofiledetaileddescriptioneditRouter 168 displayed data_of_users[0].username: ", data_of_user[0].username);
-                        res.render('../views/pages/home', { the_user_id : req.query.user_id ,
+                        res.render('../views/pages/myprofilehome', { the_user_id : req.query.user_id ,
                             the_username : data_of_user[0].username}); //title: obj.email
                     }, (err) => next(err) )
                     .catch( (err) => next(err) );

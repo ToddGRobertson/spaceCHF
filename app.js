@@ -25,7 +25,7 @@ var myprofiletheirprofileRouter     = require('./routes/myprofiletheirprofileRou
 
 var myprofilehomeRouter             = require('./routes/myprofilehomeRouter');
 
-
+var myprofiledeleteRouter           = require('./routes/myprofiledeleteRouter');
 
 var myprofilesearchRouter     = require('./routes/myprofilesearchRouter');
 var myprofileswhoisonlineRouterpage1     = require('./routes/myprofileswhoisonlineRouterpage1');
@@ -84,6 +84,9 @@ var HFheartdataposts_htmlsubmitRouter = require('./routes/HFheartdataposts_htmls
 var HFheartdatapostsfilterRouterpage1  = require('./routes/HFheartdatapostsfilterRouterpage1');
 var HFquestionnaire_htmlRouter =   require('./routes/HFquestionnaire_htmlRouter');
 var HFheartdataRouter               =   require('./routes/HFheartdataRouter');
+
+var HFheartdataposts_delete_commentsRouter = require('./routes/HFheartdataposts_delete_commentsRouter');
+var HFheartdataposts_delete_postsRouter = require('./routes/HFheartdataposts_delete_postsRouter');
 
 //establish connection with server
 const connectDB = require('./DB/connection');
@@ -243,6 +246,7 @@ app.use('/myprofilecityandstate/:user_id', myprofilecityandstateRouter);
 
 app.use('/myprofileeditcityandstate/:user_id', myprofileeditcityandstateRouter); //someone is signed in
 app.use('/myprofileeditcityandstate'         , myprofileeditcityandstateRouter); //someone is browsing
+app.use('/myprofiledelete/:user_id'          , myprofiledeleteRouter); //someone is browsing
 
 app.use('/myprofilephoto/:user_id'         , myprofilephotoRouter); //someone signed into site
 app.use('/myprofilephoto'                  , myprofilephotoRouter); //someone is browsing the site
@@ -278,6 +282,8 @@ app.use('/HFheartdatapostsfilterpage2',HFheartdatapostsfilterRouterpage2 );
 app.use('/HFheartdatapostsfilterpage3',HFheartdatapostsfilterRouterpage3 );
 app.use('/HFheartdatapostsfilterpage4',HFheartdatapostsfilterRouterpage4 );
 app.use('/HFheartdatapostsfilterpage5',HFheartdatapostsfilterRouterpage5 );
+app.use('/HFheartdataposts_delete_comments/:username/user_id/:user_id/title/:title_Id/comments/:commentId', HFheartdataposts_delete_commentsRouter );
+app.use('/HFheartdataposts_delete_posts/:username/user_id/:user_id/title/:title_Id' ,                    HFheartdataposts_delete_postsRouter  )
  //display and new comments
 app.use('/HFheartdatapostscomments', HFheartdatapostscommentsRouter );
 

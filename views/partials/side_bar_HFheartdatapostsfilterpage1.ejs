@@ -7576,6 +7576,16 @@
                 <%= console.log("HFheartdatapostsfilterRouterpage1.ejs - get - title[].author -> " + title[i].author ); %>
                 <%= console.log("HFheartdatapostsfilterRouterpage1.ejs - get - title[].datepicker -> " + title[i].datepicker ); %>
                 <%= console.log("HFheartdatapostsfilterRouterpage1.ejs - get - title[].replys_subject -> " + title[i].replys_subject ); %>
+                <% if( the_admin === true ) {  %>
+                <form action="/HFheartdataposts_delete_posts/<%= the_username %>/user_id/<%= the_user_id %>/title/<%= title[i]._id %>" method="GET"> 
+                <div style="float: left; width: 80%;">
+                    <li>Todd R</li>
+                </div>
+                <div style="float: left; width: 80%;">
+                    <li>title._id -><a href="#">====><%=  title[i]._id  %></a></li>
+                </div>
+
+               <%  } %>
                 <div style="float: left; width: 80%;">
                   <li><%= i + 1 %>)<a href="#"><%=  title[i]._id %></a></li>
                 </div>
@@ -7591,6 +7601,8 @@
                 <div style="float: left; width: 80%;">
                   <li><a href="#"><%=  title[i].replys %></a></li><hr>
                 </div>
+                <input type="submit" value="delete_post">
+                </form>
                     <!-- -->
                     <!-- //does something similar to extraction, just wanted to see it -->
                     <!--<% var string = '{"key1": "value", "key2": "value1", "Key3": [{"key31":"value 31"}] ,"__v":1}'; %> //{"key31":"value 31"}  {"key1": "value", "key2": "value1", "Key3": [{"key31":"value 31"}] ,"__v":1}-->
@@ -7608,6 +7620,19 @@
                     <%= console.log("HFheartdatapostsfilterRouterpage1.ejs - get - 85 -  title[].comments.length -> " + JSON.stringify( title[i].comments.length )); %>
                     <!--  title[i].comments.length is length of array of comments -->
                     <% for (var j = 0; j < title[i].comments.length ; j++) { %>
+                      <% if( the_admin === true ) {  %>
+                        <form action="/HFheartdataposts_delete_comments/<%= the_username %>/user_id/<%= the_user_id %>/title/<%=  title[i]._id  %>/comments/<%=  title[i].comments[j]._id  %>" method="GET"> 
+                        <div style="float: left; width: 80%;">
+                          <li>Todd R</li>
+                        </div>
+                        <div style="float: left; width: 80%;">
+                          <li>title._id -><a href="#">====><%=  title[i]._id  %></a></li>
+                        </div>
+                        <div style="float: left; width: 80%;">
+                          <li>title.comments._id -><a href="#">====><%=  title[i].comments[j]._id  %></a></li>
+                        </div>
+
+                     <%  } %>
                       <div style="float: left; width: 80%;">
                         <li><a href="#">====><%=  title[i].comments[j].author  %></a></li>
                       </div>
@@ -7618,6 +7643,8 @@
                         <!-- don't want to be able to edit textarea disabled-->
                         <li><a href="#">====><textarea disabled style="width: 100%; max-width: 100%;" rows="10" ><%= title[i].comments[j].comment %></textarea></a></li>
                       </div>
+                      <input type="submit" value="delete_comment">
+                      </form>
                       
         
                     <% } %>

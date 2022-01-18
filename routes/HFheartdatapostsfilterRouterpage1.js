@@ -70,12 +70,14 @@ HFheartdatapostsfilterRouterpage1.route('/')  //line 18 in index.js specifies di
             Users.find({'_id' : req.params.user_id })  // from posts.js
             .then( (user) => { //dishes is in mongodb as a collection/database
                 console.log("70 displayed users[0].email : ", user[0].email);
+                console.log("73 displayed users[0].admin : ", user[0].admin);
                 // yyyy-mm-dd
                 console.log("73 - date now => " + new Date().toISOString().slice(0, 10));
                 res.render('../views/pages/HFheartdatapostsfilterpage1', { title: heartdataposts,
                                                                        the_date : new Date().toISOString().slice(0, 10),
                                                                        the_user_id : req.params.user_id,
                                                                        the_email : user[0].email,
+                                                                       the_admin : user[0].admin,
                                                                        the_username : data_of_user[0].username }); 
             }, (err) => next(err) )
             .catch( (err) => next(err) );
